@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[文斯雜談凸^-^凸]]></title>
-  <link href="http://kamiiyu.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: kamiiyu | 文斯雜談凸^-^凸]]></title>
+  <link href="http://kamiiyu.github.com/blog/categories/kamiiyu/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.com/"/>
   <updated>2013-01-17T15:07:14+08:00</updated>
   <id>http://kamiiyu.github.com/</id>
