@@ -4,8 +4,8 @@
 
 url: http://kamiiyu.github.com
 title: 文斯雜談凸^-^凸
-subtitle: 這不是技術博客~_~;
-author: 何 文斯
+subtitle: 骨子里流着技術的血液，但這不是技術博客~_~;
+author: 文斯
 simple_search: http://google.com/search
 description:
 
@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:  spicekamiiyu@gmail.com
+email: spicekamiiyu@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -58,13 +58,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: kamiiyu
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: spicekamiiyu@gmail.com
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
