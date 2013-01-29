@@ -5,7 +5,7 @@ date: 2013-01-29 15:29
 comments: true
 categories: ruby
 ---
-　　要問Jack是不是管理員，有三種方法。  
+　　要問Jack是不是管理員，代碼一般有三種寫法。  
 
 
 {% codeblock php lang:php %}
@@ -46,20 +46,20 @@ end
   
 　　下面解釋一下我的思路：
 
-* 約定查找用戶的權限的方法名為"can_do?"。假設想確認Jack有沒有游泳的權限，則如下那麼寫：
+* 約定查找用戶的權限的方法名為*can_do?*。假設想確認Jack有沒有游泳的權限，則如下那麼寫：
 {% codeblock lang:ruby %}
 Jack.can_swim?
 {% endcodeblock %}
-* Jack發現他本身並沒有“can_swim?”方法，在一系列的處理後他最終調用用了method_missing方法。
+* Jack發現他本身並沒有*can_swim?*方法，在一系列的處理後他最終調用用了method_missing方法。
 * method_missing簡單來說只做一件事，判斷Jack是否有swim的權限。  
-* 如果想看看Jack有沒有跑步的權限，則直接使用"can_run"方法，重複以上三個步驟即可。
+* 如果想看看Jack有沒有跑步的權限，則直接使用*can_run*方法，重複以上三個步驟即可。
 
 
 
 　　對比java，如果需要判斷swin、run、jump三個動作，我們怎麼做？  
 
-* 寫三個"can_xx"方法。*(代碼重複，擴展性差)*
-* 寫一個"can(xx)"方法，每次都把動作當作參數傳進去。*(純主觀看法，括號很難看，不美觀)*  
+* 寫三個*can_xx*方法。**(代碼重複，擴展性差)**
+* 寫一個*can(xx)*方法，每次都把動作當作參數傳進去。**(純主觀看法，括號很難看，不美觀)**  
 　
 
-　　ruby的"can_do?"是不是很簡單易懂？特別是畫龍點睛的"?"，比java的"is_xx()"簡直好看百倍！
+　　ruby的*can_do?*是不是很簡單易懂？特別方法尾部畫龍點睛的"?"，比java的*is_xx()*簡直好看百倍！
