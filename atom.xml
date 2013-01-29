@@ -4,7 +4,7 @@
   <title><![CDATA[文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.com/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.com/"/>
-  <updated>2013-01-26T11:46:16+08:00</updated>
+  <updated>2013-01-29T17:17:54+08:00</updated>
   <id>http://kamiiyu.github.com/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -12,6 +12,133 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Jack是不是管理員？]]></title>
+    <link href="http://kamiiyu.github.com/blog/2013/01/29/mrw-admin/"/>
+    <updated>2013-01-29T15:29:00+08:00</updated>
+    <id>http://kamiiyu.github.com/blog/2013/01/29/mrw-admin</id>
+    <content type="html"><![CDATA[<p>　　要問Jack是不是管理員，有三種方法。</p>
+
+<figure class='code'><figcaption><span>php  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if is_admin(Jack){ echo &quot;Hi, Jack!&quot;; }</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>java  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">if</span> <span class="o">(</span><span class="n">Jack</span><span class="o">.</span><span class="na">is_admin</span><span class="o">()){</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hi, Jack!&quot;</span><span class="o">);</span> <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>ruby  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hi, Jack!&quot;</span> <span class="k">if</span> <span class="no">Jack</span><span class="o">.</span><span class="n">admin?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　　以上三種方法只有ruby的最一目瞭然，不會看花眼，最接近人的語言習慣。<br/>
+　　去除了繁雜的括號、花括號，行文直截了當，寫代碼就像寫文章一樣，甚至連寫註釋的功夫的省去了。<br/>
+　　更神奇的<em>admin?</em>這個方法根據ruby的動態特性可以在程序運行的時候才生成，而不需要預先寫好代碼。<br/>
+　　以下是我rails項目中的代碼片段：</p>
+
+<figure class='code'><figcaption><span>實際代碼片段  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">method_id</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">method_id</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/^can_.*\?$/</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">something</span> <span class="o">=</span> <span class="n">method_id</span><span class="o">[</span><span class="mi">4</span><span class="o">.</span><span class="n">.</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">something</span><span class="o">.</span><span class="n">blank?</span>
+</span><span class='line'>      <span class="k">super</span><span class="p">(</span><span class="n">method_id</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">class_eval</span> <span class="o">&lt;&lt;-</span><span class="no">METHOD</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'><span class="sh">        def #{method_id}</span>
+</span><span class='line'><span class="sh">          self.can_do?(:sub_action =&gt; %{#{something}})</span>
+</span><span class='line'><span class="sh">        end</span>
+</span><span class='line'><span class="no">      METHOD</span>
+</span><span class='line'>      <span class="nb">send</span><span class="p">(</span><span class="n">method_id</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">method_id</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/^dpmt_.*\?$/</span><span class="p">)</span>
+</span><span class='line'>     <span class="p">(</span><span class="err">略</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　　下面解釋一下我的思路：</p>
+
+<ul>
+<li>約定查找用戶的權限的方法名為&#8221;can_do?&#8221;。假設想確認Jack有沒有游泳的權限，則如下那麼寫：</li>
+</ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Jack</span><span class="o">.</span><span class="n">can_swim?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Jack發現他本身並沒有“can_swim?”方法，在一系列的處理後他最終調用用了method_missing方法。</li>
+<li>method_missing簡單來說只做一件事，判斷Jack是否有swim的權限。</li>
+<li>如果想看看Jack有沒有跑步的權限，則直接使用&#8221;can_run&#8221;方法，重複以上三個步驟即可。</li>
+</ul>
+
+
+<p>　　對比java，如果需要判斷swin、run、jump三個動作，我們怎麼做？</p>
+
+<ul>
+<li>寫三個&#8221;can_xx&#8221;方法。<em>(代碼重複，擴展性差)</em></li>
+<li>寫一個&#8221;can(xx)&#8221;方法，每次都把動作當作參數傳進去。<em>(純主觀看法，括號很難看，不美觀)</em><br/>
+　</li>
+</ul>
+
+
+<p>　　ruby的&#8221;can_do?&#8221;是不是很簡單易懂？特別是畫龍點睛的&#8221;?&#8221;，比java的&#8221;is_xx()&#8221;簡直好看百倍！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[被遺棄的聖經]]></title>
+    <link href="http://kamiiyu.github.com/blog/2013/01/28/the-abandoned-bible/"/>
+    <updated>2013-01-28T10:35:00+08:00</updated>
+    <id>http://kamiiyu.github.com/blog/2013/01/28/the-abandoned-bible</id>
+    <content type="html"><![CDATA[<p>　　我的宗教體驗是由一本被遺棄的聖經開始的。<br/>
+　　在日本的公共團地（小區）大家都有會把看完的雜誌、漫畫、小說等各種書籍放在樓梯間的固定的地方等待回收。我偶爾也去翻翻，尋尋寶。<br/>
+　　一天，我找到一本發黃的聖經。在中學的時候就對聖經有興趣，來日本後也想參加一些宗教活動，體驗一下，可惜一直工作沒時間。沒想到在這種環境下我“收到”人生中第一本聖經。<br/>
+　　如獲至寶似的，把聖經拿回宿舍。一來是日語的，而來詞彙好多都不是現代常用的，讀起來非常費勁，翻了一會就放一邊了。<br/>
+　　第二天，突然有一男一女來敲門了，男的大概40多歲瘦瘦的說話很有禮貌很客氣，女的應該20多吧，話比較很少，都是日本人。他們第一句就問我知不知道聖經，是否對聖經有興趣，我心抽了一下，就把昨天撿了本聖經並對聖經有興趣的事情告訴他們。在門口和他們聊了好久，後來男的日本人說能不能看看那本聖經，我就拿出來給他看了看。他看了一下，皺了一下眉還給我後，說如果我想學，他們每個星期都可以來宿舍教我，並送一本新的聖經給我，我馬上就答應了。<br/>
+　　他們走後，我和室友聊了一下，他也有興趣，就決定一起學習了。<br/>
+　　接著的星期天下午，那個日本男人果然來了，不過旁邊的不是上次那個女孩，而是一個帶眼鏡稍微成熟點的女生。<br/>
+　　日本男人叫TK，旁邊是他的妻子。他們送了一本手掌大的聖經給我，由於來了才知道室友也想學習，他們說下星期來的時候再拿本聖經和資料給我們。他們對有新成員加入似乎都挺高興。我們四個人聊了好久，主要聊着我們倆的工作生活，剛來日本習慣不習慣啊，對神有什麼感覺之類的。期間，TK又問能不能再看一下那本撿回來的聖經，他看了看，又給他妻子看了看，口中嘀咕了一下“やっぱりね“（果然如此），然後和我說這本聖經寫的不好，以後就看他們送來的就可以了，下星期他會再另外送一本日語的聖經，到時候再和我們說哪裡不好。<br/>
+　　很快又到了下個星期天了，他們很準時的來了。帶了三本聖經和好幾本精美的硬皮包裝的圖文版的聖經故事，說送給我們，弄得我們有點不好意思了。<br/>
+　　進屋坐下後就和我們解釋上星期留下的謎題了。親密朋友之間會直呼對方的名字，而神就是我們最親密的朋友，所以我們要說出神的名字而不需要忌諱，而我撿的聖經（應該是天主教版本的）把神的名字換成其他稱呼，這是對神的不尊敬，神也不會喜歡這樣，所以不好。<br/>
+　　關於神的名字能不能直呼，不同教派有不同的理解，主流的像天主教和新教都是主張不直呼的，所以英文一般用lord，中文用上帝來代替，而一些像TK所在非主流教派卻有自己的一套解釋，也正因此成為了非主流。這種分歧無處不在，大者如猶太教、伊斯蘭教、基督教雖然信奉的用一位真神，但卻由於不同的理解而拼個你死我活；小者如在基督教世界也是派別林立，各不相讓，各稱異端⋯⋯<br/>
+　　聖經的學習挺有趣的，TK所在的教派會自己在編寫本教材，然後結合自己翻譯的聖經來教我們。第一課意外的非常“科學”——宇宙起源。教這些無非就是一個目的，讓我們知道人類多渺小，自己為什麼都知道，但是事實上還是很多科學不能解釋的東西，但這些其實都是全知全能的神賜於我們的。<br/>
+　　聖經的學習更加激發了我對宗教的興趣，主要的參考來源就是維基百科，英語、日語、繁體中文的幾個版本對比着看，有時候一看就是一整天⋯⋯<br/>
+　　所謂的宗教也好、科學也好，其實都是一種信仰而已，歸根結底就是一個“信”字，只能信不能問。若是刨根問底，哪怕是科學，到最後總會發現無法解釋的地方，反過來會讓你更敬畏這個自然界，也許這就是為什麼很多有名的物理學家例如牛頓同時又是虔誠的基督徒的原因。自大的以為自己能解釋一切，其實是無知的表現。<br/>
+　　和有信仰的人交往很放心，很快就成為好朋友了。我們基本固定沒星期學習一次，或者來我們宿舍或者去他們家，去他們家的時候他們還會親自下廚。偶爾還會參加他們的大聚會，在那裡認識了不少中國人甚至韓國人。有時候還會組織活動，去賞櫻花、吃烤肉⋯⋯宗教對於他們來說就是一個大家庭，在裡面的都是兄弟姐妹，守望相助，十分融洽。<br/>
+　　後來，我才知道原來TK那天是看錯地址才找到我們宿舍，我又一次被神的力量所折服:-)<br/>
+　　但可能由於自己性格的問題，太執著、太喜歡問為什麼了，直到現在，我還是對很多事情有保留，不過有一點我敢確定的是，讓以前教科書上學的東西見鬼去吧⋯⋯</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[文斯雜談 醞釀已久]]></title>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | 文斯雜談凸^-^凸]]></title>
+  <link href="http://kamiiyu.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://kamiiyu.github.com/"/>
+  <updated>2013-01-29T17:17:54+08:00</updated>
+  <id>http://kamiiyu.github.com/</id>
+  <author>
+    <name><![CDATA[文斯]]></name>
+    <email><![CDATA[spicekamiiyu@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Jack是不是管理員？]]></title>
+    <link href="http://kamiiyu.github.com/blog/2013/01/29/mrw-admin/"/>
+    <updated>2013-01-29T15:29:00+08:00</updated>
+    <id>http://kamiiyu.github.com/blog/2013/01/29/mrw-admin</id>
+    <content type="html"><![CDATA[<p>　　要問Jack是不是管理員，有三種方法。</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>php  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if is_admin(Jack){ echo &quot;Hi, Jack!&quot;; }</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>java  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">if</span> <span class="o">(</span><span class="n">Jack</span><span class="o">.</span><span class="na">is_admin</span><span class="o">()){</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hi, Jack!&quot;</span><span class="o">);</span> <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>ruby  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hi, Jack!&quot;</span> <span class="k">if</span> <span class="no">Jack</span><span class="o">.</span><span class="n">admin?</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>　　以上三種方法只有ruby的最一目瞭然，不會看花眼，最接近人的語言習慣。<br/>
+　　去除了繁雜的括號、花括號，行文直截了當，寫代碼就像寫文章一樣，甚至連寫註釋的功夫的省去了。<br/>
+　　更神奇的<em>admin?</em>這個方法根據ruby的動態特性可以在程序運行的時候才生成，而不需要預先寫好代碼。<br/>
+　　以下是我rails項目中的代碼片段：
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>實際代碼片段  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">method_id</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">method_id</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/&lt;sup&gt;can_.*\?$/</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/sup&gt;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">something</span> <span class="o">=</span> <span class="n">method_id</span><span class="o">[</span><span class="mi">4</span><span class="o">.</span><span class="n">.</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">something</span><span class="o">.</span><span class="n">blank?</span>
+</span><span class='line'>  <span class="k">super</span><span class="p">(</span><span class="n">method_id</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="nb">self</span><span class="o">.</span><span class="n">class_eval</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">-</span><span class="no">METHOD</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">def</span> <span class="c1">#{method_id}</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">.</span><span class="n">can_do?</span><span class="p">(</span><span class="ss">:sub_action</span> <span class="o">=&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="sx">%{</span><span class="si">#{</span><span class="n">something</span><span class="si">}</span><span class="sx">}</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="no">METHOD</span>
+</span><span class='line'>  <span class="nb">send</span><span class="p">(</span><span class="n">method_id</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">elsif</span> <span class="n">method_id</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/&lt;sup&gt;dpmt_.*\?$/</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/sup&gt;&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span> <span class="p">(</span><span class="err">略</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/code&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="k">end</span><span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>　　下面解釋一下我的思路：</p>
+
+<ul>
+<li>約定查找用戶的權限的方法名為"can_do?"。假設想確認Jack有沒有游泳的權限，則如下那麼寫：
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Jack</span><span class="o">.</span><span class="n">can_swim?</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></li>
+<li>Jack發現他本身並沒有“can_swim?”方法，在一系列的處理後他最終調用用了method_missing方法。</li>
+<li>method_missing簡單來說只做一件事，判斷Jack是否有swim的權限。</li>
+<li>如果想看看Jack有沒有跑步的權限，則直接使用"can_run"方法，重複以上三個步驟即可。</li>
+</ul>
+
+
+<p>　　對比java，如果需要判斷swin、run、jump三個動作，我們怎麼做？</p>
+
+<ul>
+<li>寫三個"can_xx"方法。<em>(代碼重複，擴展性差)</em></li>
+<li>寫一個"can(xx)"方法，每次都把動作當作參數傳進去。<em>(純主觀看法，括號很難看，不美觀)</em><br/>
+　</li>
+</ul>
+
+
+<p>　　ruby的"can_do?"是不是很簡單易懂？特別是畫龍點睛的"?"，比java的"is_xx()"簡直好看百倍！</p>
+]]></content>
+  </entry>
+  
+</feed>
