@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "resume"
-date: 2013-01-21 16:17
+title: "*inux"
+date: 2013-10-15 15:11
 comments: true
 sharing: true
 footer: true
