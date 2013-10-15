@@ -72,6 +72,7 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
   <li><a href="/blog/archives">Archive</a></li>
   <li><a href="/religions/">Religions</a></li>
   <li><a href="/my-ruby-way/">Ruby</a></li>
+  <li><a href="/start-inux/">*inux</a></li>
   <li><a href="/projects/">Projects</a></li>
   <li><a href="/about/">About</a></li>
 </ul>
@@ -108,24 +109,24 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 
 <div class="entry-content"><p>　　要問Jack是不是管理員，代碼一般有三種寫法。</p>
 
-<figure class='code'><figcaption><span>php  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>php </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">if is_admin(Jack){ echo &quot;Hi, Jack!&quot;; }</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 
 
-<figure class='code'><figcaption><span>java  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>java </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">if</span> <span class="o">(</span><span class="n">Jack</span><span class="o">.</span><span class="na">is_admin</span><span class="o">()){</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hi, Jack!&quot;</span><span class="o">);</span> <span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 
 
-<figure class='code'><figcaption><span>ruby  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>ruby </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Hi, Jack!&quot;</span> <span class="k">if</span> <span class="no">Jack</span><span class="o">.</span><span class="n">admin?</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -135,8 +136,8 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 　　更神奇的<em>admin?</em>這個方法根據ruby的動態特性可以在程序運行的時候才生成，而不需要預先寫好代碼。<br/>
 　　以下是我rails項目中的代碼片段：</p>
 
-<figure class='code'><figcaption><span>實際代碼片段  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>實</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -178,7 +179,7 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 </ul>
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Jack</span><span class="o">.</span><span class="n">can_swim?</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -199,7 +200,7 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 </ul>
 
 
-<p>　　ruby的<em>can_do?</em>是不是很簡單易懂？特別方法尾部畫龍點睛的&#8221;?&#8221;，比java的<em>is_xx()</em>簡直好看百倍！</p>
+<p>　　ruby的<em>can_do?</em>是不是很簡單易懂？特別方法尾部畫龍點睛的&#8221;?&ldquo;，比java的<em>is_xx()</em>簡直好看百倍！</p>
 </div>
 
 
@@ -312,23 +313,6 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("spicekamiiyu@gmail.com", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/spicekamiiyu@gmail.com" class="twitter-follow-button" data-show-count="false">Follow @spicekamiiyu@gmail.com</a>
-  
 </section>
 
 

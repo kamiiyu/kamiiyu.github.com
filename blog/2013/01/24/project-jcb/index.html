@@ -71,6 +71,7 @@
   <li><a href="/blog/archives">Archive</a></li>
   <li><a href="/religions/">Religions</a></li>
   <li><a href="/my-ruby-way/">Ruby</a></li>
+  <li><a href="/start-inux/">*inux</a></li>
   <li><a href="/projects/">Projects</a></li>
   <li><a href="/about/">About</a></li>
 </ul>
@@ -107,7 +108,7 @@
 
 <div class="entry-content"><p>　　2008年，還是日立製作所的項目，客戶是更難纏的JCB，注定了這個項目是個難啃的骨頭。我加入的時候項目已經做了一年多，已經處於系統測試階段，之前開發的整個團隊由於各種原因已經撤走，只剩下文檔和代碼由我們接手，系統三個月後上線⋯⋯<br/>
 　　三個月內，用最短的時間熟悉系統，用最短的時間查找並修改測出來的bug，這些也都還好，最麻煩的由於客戶是JCB，整個開發文檔一點都馬虎不得，大大小小從設計到單元測試的文檔全都需要經過客戶review。修改bug的過程更令人髮指，也許只是修改一行代碼，但卻要提交十幾頁的測試結果文檔作為審查，首先是團隊review然後是日立review，沒問題放服務器測試後在整理n張客戶能看懂的測試結果文檔，客戶確認後再發佈到正式服務器。<br/>
-　　要件設計&#8211;>基本設計&#8211;>詳細設計&#8211;>編寫代碼&#8211;>單元測試&#8211;>結合測試&#8211;>系統測試&#8211;>發佈後確認。不管是修改bug或者追加功能，不管時間多麼緊，層層review一步都不能少。過程看似死板，但是就是這種紀律性讓我們的團隊在這麼困難的情況下生存了下來，系統上線後，新版本的升級順理成章的還是由我們來負責，而且慢慢也把更多的模塊委託給我們。<br/>
+　　要件設計&mdash;>基本設計&mdash;>詳細設計&mdash;>編寫代碼&mdash;>單元測試&mdash;>結合測試&mdash;>系統測試&mdash;>發佈後確認。不管是修改bug或者追加功能，不管時間多麼緊，層層review一步都不能少。過程看似死板，但是就是這種紀律性讓我們的團隊在這麼困難的情況下生存了下來，系統上線後，新版本的升級順理成章的還是由我們來負責，而且慢慢也把更多的模塊委託給我們。<br/>
 　　我剛去的時候團隊只有7個人，最終發展為三十個人的團隊，中日成員大概對半分，上面一個tl一個pm，再分兩個小團隊，一個負責人機互動頁面，一個負責外部數據的交換和處理，我們所屬的是中期審查模塊。系統另外還分為初期審查、online（臨時審查）三部分，再加上一個業務的團隊，一個運維團隊，總共五team人，總共有100多人。<br/>
 　　這個系統是JCB基幹系統JENIUS下面的一個子系統ramda，主要負責信用卡用戶信用度管理，為基幹系統提供信用度參考。用戶的信用數據來源主要來自第三方和JCB自己的數據庫，因此這次項目的重點是第三方和JCB的數據整合。第三方機構就有四家，而JCB的數據也分散在好幾個子系統裡面，測試數據做起來異常的費勁。由於涉及的外部系統接口眾多，而且稍有點錯誤，也許就會讓客戶蒙受巨大損失，沒有如此苛刻的開發流程是根本保證不了質量的。<br/>
 　　日立的項目，用的是日立自己的解決方案Justware，不過數據庫就用了更出名oracle，整個框架還是那麼的實而不華，開發人員不需要專注技術細節，只需把握業務細節，不能說很有效率，但是很實用，把犯錯的機會降到最低。部署起來也算方便，圖形化，簡單直接。<br/>
@@ -223,23 +224,6 @@
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("spicekamiiyu@gmail.com", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/spicekamiiyu@gmail.com" class="twitter-follow-button" data-show-count="false">Follow @spicekamiiyu@gmail.com</a>
-  
 </section>
 
 
