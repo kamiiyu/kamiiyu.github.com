@@ -1,116 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>文斯雜談凸^-^凸</title>
-  <meta name="author" content="文斯">
-
-  
-  <meta name="description" content="　　要問Jack是不是管理員，代碼一般有三種寫法。 php 1
-if is_admin(Jack){ echo &quot;Hi, Jack!&quot;; } java 1
-if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><![CDATA[文斯雜談凸^-^凸]]></title>
+  <link href="http://kamiiyu.github.io/atom.xml" rel="self"/>
+  <link href="http://kamiiyu.github.io/"/>
+  <updated>2013-12-06T14:22:48+08:00</updated>
+  <id>http://kamiiyu.github.io/</id>
+  <author>
+    <name><![CDATA[文斯]]></name>
+    <email><![CDATA[spicekamiiyu@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <link rel="canonical" href="http://kamiiyu.github.io/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="文斯雜談凸^-^凸" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-38035892-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">文斯雜談凸^-^凸</a></h1>
-  
-    <h2>骨子里流着技術的血液，但這不是技術博客~_~;</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:kamiiyu.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/blog/archives">Archive</a></li>
-  <li><a href="/religions/">Religions</a></li>
-  <li><a href="/my-ruby-way/">Ruby</a></li>
-  <li><a href="/projects/">Projects</a></li>
-  <li><a href="/about/">About</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-29T15:29:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　要問Jack是不是管理員，代碼一般有三種寫法。</p>
+  <entry>
+    <title type="html"><![CDATA[Jack是不是管理員？]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/29/mrw-admin/"/>
+    <updated>2013-01-29T15:29:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/29/mrw-admin</id>
+    <content type="html"><![CDATA[<p>　　要問Jack是不是管理員，代碼一般有三種寫法。</p>
 
 <figure class='code'><figcaption><span>php </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -204,42 +112,15 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 
 
 <p>　　ruby的<em>can_do?</em>是不是很簡單易懂？特別方法尾部畫龍點睛的&#8221;?&ldquo;，比java的<em>is_xx()</em>簡直好看百倍！</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-28T10:35:00+08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　我的宗教體驗是由一本被遺棄的聖經開始的。<br/>
+  <entry>
+    <title type="html"><![CDATA[被遺棄的聖經]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/28/the-abandoned-bible/"/>
+    <updated>2013-01-28T10:35:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/28/the-abandoned-bible</id>
+    <content type="html"><![CDATA[<p>　　我的宗教體驗是由一本被遺棄的聖經開始的。<br/>
 　　在日本的公共團地（小區）大家都有會把看完的雜誌、漫畫、小說等各種書籍放在樓梯間的固定的地方等待回收。我偶爾也去翻翻，尋尋寶。<br/>
 　　一天，我找到一本發黃的聖經。在中學的時候就對聖經有興趣，來日本後也想參加一些宗教活動，體驗一下，可惜一直工作沒時間。沒想到在這種環境下我“收到”人生中第一本聖經。<br/>
 　　如獲至寶似的，把聖經拿回宿舍。一來是日語的，而來詞彙好多都不是現代常用的，讀起來非常費勁，翻了一會就放一邊了。<br/>
@@ -256,42 +137,15 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 　　和有信仰的人交往很放心，很快就成為好朋友了。我們基本固定沒星期學習一次，或者來我們宿舍或者去他們家，去他們家的時候他們還會親自下廚。偶爾還會參加他們的大聚會，在那裡認識了不少中國人甚至韓國人。有時候還會組織活動，去賞櫻花、吃烤肉⋯⋯宗教對於他們來說就是一個大家庭，在裡面的都是兄弟姐妹，守望相助，十分融洽。<br/>
 　　後來，我才知道原來TK那天是看錯地址才找到我們宿舍，我又一次被神的力量所折服:&ndash;)<br/>
 　　但可能由於自己性格的問題，太執著、太喜歡問為什麼了，直到現在，我還是對很多事情有保留，不過有一點我敢確定的是，讓以前教科書上學的東西見鬼去吧⋯⋯</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/25/project-self/">文斯雜談 醞釀已久</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-25T15:21:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　關於自己的博客醞釀好多年了，學生時代在csdn寫過一段時間博客，也正是csdn的博客被當時的老板看到後，才有機會到日本發展。<br/>
+  <entry>
+    <title type="html"><![CDATA[文斯雜談 醞釀已久]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/25/project-self/"/>
+    <updated>2013-01-25T15:21:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/25/project-self</id>
+    <content type="html"><![CDATA[<p>　　關於自己的博客醞釀好多年了，學生時代在csdn寫過一段時間博客，也正是csdn的博客被當時的老板看到後，才有機會到日本發展。<br/>
 　　但是工作以後一直也沒閒下來，而且後熱衷旅遊和照相，所以一耽誤就6、7年沒寫東西了。<br/>
 　　曾經有想過在iteye寫寫自己的博客，但總不太希望受制於人⋯⋯<br/>
 　　直到半年多前知道<a href="http://octopress.org/">Octopress</a>這個博客系統，非常喜歡他的口號－－blogging like a hacker，而且由於系統是基於ruby的編寫，只要有時間我可以輕鬆自由的為我的博客添磚加瓦，總之這個就是我夢寐以求的自由的平台。<br/>
@@ -300,84 +154,30 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 　　懶惰是最難治的病⋯⋯<br/>
 　　總之，這裡是流淌着技術血液的大雜燴:&ndash;)
 　　</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-25T11:22:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　2011年9月，朋友找到了我，朋友的老東家做的網站－－華南商業網的網站改版一年多了沒弄好，問我有沒有時間幫忙看看。<br/>
+  <entry>
+    <title type="html"><![CDATA[華南商業網 臨危受命]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/25/project-hsw/"/>
+    <updated>2013-01-25T11:22:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/25/project-hsw</id>
+    <content type="html"><![CDATA[<p>　　2011年9月，朋友找到了我，朋友的老東家做的網站－－華南商業網的網站改版一年多了沒弄好，問我有沒有時間幫忙看看。<br/>
 　　由於這家公司離家也近，剛開始大概一星期抽空前一次，做做技術指導；離開瑞卡後就以兼職形式加入這個項目。<br/>
 　　這是一個關於連鎖市場、專業市場、地產市場等的商業門戶網站。2011年底，由於業務需要，希望做一次改版。網站早在2003年就開始運營，但一直沒做過技術更新，用的是現在已經幾乎沒人用的asp，網站只有一個常規的維護人員，並沒有開發人員。找了家外包公司負責網站的改版，各種原因拖了大半年也沒完成，最後扔下一堆半成品的代碼就拍拍屁股走人了。<br/>
 　　新版的網站已經改為用php，數據庫也是我熟悉的mysql，但是服務器竟然還是用windows2003，不過也沒辦法，舊網站是asp＋sqlserver，肯定一套都是m＄的東西。<br/>
 　　百廢待興，排版交給原來的維護人員負責，我專注于新版網站基礎結構做調整。半成品代碼可謂是烏煙瘴氣，連最基本的字符編碼都弄的亂七八糟，各種亂碼橫飛。不少功能還沒實現或者有bug，因此我在調整結構的同時還需要把完善功能。代碼半天就看完，php現學現做，不過相比ruby的開發效率，php落後100年-_&ndash;#。接這是服務器的調整優化，為了保證穩定性所以選擇iis運行php，另外由於需要保留舊網站的資源以及部分新功能是我用ruby做的，所以選擇了nginx做反向代理，一個小小的網站用到三種技術兩個數據庫實現，的確夠折騰的。<br/>
 　　9月份接觸，11月正式加入，終於趕在老板挑的1月的吉時上線。從我的角度來看問題還是一大堆，服務器硬件老化，大部份元件已經停產；網站結構過於混亂，需要進一步的整合、優化等等。雖然還有這樣那樣的問題，但是折騰了一年多的改版終於完成，公司上下的一塊心頭大石終於放了下來。<br/>
 　　臨危受命，這是我做過的技術上最輕鬆的項目，php、windows雖沒有太多的實戰經驗，但一理通百理明，很快的就搞通了；但是項目的壓力卻是最大的，老板曾經說過，如果這次還不行就不改版了，整個項目的成敗都壓在我一個人身上。最終我還是扛過來了，不過也慨嘆這樣的爛尾項目為什麼在中國似乎是常態呢⋯</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/24/project-reocar/">瑞卡租車 如願以償</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-24T16:47:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　2011年，回廣州後正式加入的一個項目。一個我從2007年就想加入的項目，<a href="http://baike.baidu.com/view/45135.htm" title="腳本編程語言">ruby</a>的項目。早在2006年我就知道ruby，2007年在日本自學ruby過一個月左右，就一直想做ruby的項目，但是在那之後由於工作太忙，公司也沒有ruby項目，也就不了了之了，但是我的ruby夢一直沒有停歇過。三言兩語很難說清楚為什麼我會對ruby情有獨鍾，但是如果沒瑞卡租車這個ruby項目，我可能會選擇回日本發展了。<br/>
+  <entry>
+    <title type="html"><![CDATA[瑞卡租車 如願以償]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/24/project-reocar/"/>
+    <updated>2013-01-24T16:47:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/24/project-reocar</id>
+    <content type="html"><![CDATA[<p>　　2011年，回廣州後正式加入的一個項目。一個我從2007年就想加入的項目，<a href="http://baike.baidu.com/view/45135.htm" title="腳本編程語言">ruby</a>的項目。早在2006年我就知道ruby，2007年在日本自學ruby過一個月左右，就一直想做ruby的項目，但是在那之後由於工作太忙，公司也沒有ruby項目，也就不了了之了，但是我的ruby夢一直沒有停歇過。三言兩語很難說清楚為什麼我會對ruby情有獨鍾，但是如果沒瑞卡租車這個ruby項目，我可能會選擇回日本發展了。<br/>
 　　7月25號正式入職，就立刻告知新的ruby系統三個月內就要完成，做好準備替換現有的php系統，因此上班時間是早9點晚9點，沒有雙休，沒有節假日。對於早已經適應日本工作強度的我來說，這個也不算什麼，真正有挑戰性的是ruby和<a href="http://baike.baidu.com/view/663386.htm" title="基於ruby的web開發框架">rails</a>。團隊總共只有五個人，其中一個是team leader K，ruby達人，比我早入職幾個星期；剩下三人都是公司原來php團隊調過來的元老；還有一個業務、技術都不懂的我⋯⋯<br/>
 　　記得以前高中英語老師說過，<em>別看有些人寫著精通20多國家語言有多麼了不起，只要學好英語，什麼法語、德語等等就是詞彙量的問題</em>。<br/>
 　　我覺得編程語言也同樣的道理，到你真開竅的時候，不會拘泥與某種技術或語言，關心只是怎麼去解決問題。<br/>
@@ -398,42 +198,15 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 　　10月，經過一番掙扎後，我向公司提交了辭呈。<br/>
 　　如願以償，不僅是技術上的，還是更多是來自努力後被肯定的那份滿足感。加入公司後一個月轉正，三個月後掌管業務系統、半年後時技術部，這一切都都多虧了有K對我的賞識。<br/>
 　　開始考慮是否離開，是在6、7月間，當時整個技術部已經趨於穩定，已經從之前的地震恢復過來，而由於公司策略慢慢改為線下，對系統的依賴慢慢減少。人員的變動加上公司策略的改變，那種不眠不休的那種工作激情已經一去不復返，可以選擇留下慢慢混日子，但我還是希望能找一個能發揮自己潛能的新舞台，嘗試更多新事物。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/24/project-jcb/">JCBカード 乘风破浪</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-24T14:26:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　2008年，還是日立製作所的項目，客戶是更難纏的JCB，注定了這個項目是個難啃的骨頭。我加入的時候項目已經做了一年多，已經處於系統測試階段，之前開發的整個團隊由於各種原因已經撤走，只剩下文檔和代碼由我們接手，系統三個月後上線⋯⋯<br/>
+  <entry>
+    <title type="html"><![CDATA[JCBカード 乘风破浪]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/24/project-jcb/"/>
+    <updated>2013-01-24T14:26:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/24/project-jcb</id>
+    <content type="html"><![CDATA[<p>　　2008年，還是日立製作所的項目，客戶是更難纏的JCB，注定了這個項目是個難啃的骨頭。我加入的時候項目已經做了一年多，已經處於系統測試階段，之前開發的整個團隊由於各種原因已經撤走，只剩下文檔和代碼由我們接手，系統三個月後上線⋯⋯<br/>
 　　三個月內，用最短的時間熟悉系統，用最短的時間查找並修改測出來的bug，這些也都還好，最麻煩的由於客戶是JCB，整個開發文檔一點都馬虎不得，大大小小從設計到單元測試的文檔全都需要經過客戶review。修改bug的過程更令人髮指，也許只是修改一行代碼，但卻要提交十幾頁的測試結果文檔作為審查，首先是團隊review然後是日立review，沒問題放服務器測試後在整理n張客戶能看懂的測試結果文檔，客戶確認後再發佈到正式服務器。<br/>
 　　要件設計&mdash;>基本設計&mdash;>詳細設計&mdash;>編寫代碼&mdash;>單元測試&mdash;>結合測試&mdash;>系統測試&mdash;>發佈後確認。不管是修改bug或者追加功能，不管時間多麼緊，層層review一步都不能少。過程看似死板，但是就是這種紀律性讓我們的團隊在這麼困難的情況下生存了下來，系統上線後，新版本的升級順理成章的還是由我們來負責，而且慢慢也把更多的模塊委託給我們。<br/>
 　　我剛去的時候團隊只有7個人，最終發展為三十個人的團隊，中日成員大概對半分，上面一個tl一個pm，再分兩個小團隊，一個負責人機互動頁面，一個負責外部數據的交換和處理，我們所屬的是中期審查模塊。系統另外還分為初期審查、online（臨時審查）三部分，再加上一個業務的團隊，一個運維團隊，總共五team人，總共有100多人。<br/>
@@ -443,42 +216,15 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 　　乘风破浪，項目的難度本身並不高，但是要求卻一點不低，深深的感受到日本人追求細節的那種令人髮指的執著，哪怕空格是用全角還是半角都會仔細檢查。從開始無數次的review不通過重寫文檔到後來的一次通過，比攻克一個技術難題更有成就感。<br/>
 　　商業系統開發發展必然朝越來越模式化的發展，這樣企業承擔的成本也許高點，但大大降低了失敗的機率，因為整個項目的成敗靠的整個團隊而不是個人。<br/>
 　　兩個項目，五年的日本開發經驗，讓我獲益良多，但是我還是決定回廣州⋯⋯</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/24/project-toukyu/">東急リバブル 牛刀初試</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-24T10:21:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　2007年，五月從公司組織的富士山旅遊回來後，終於迎來了我在日本的第一個項目。地點在横浜，從我當時住的東京都江東区去需要有一個多小時的電車，這意味著我每天需要七點十五分就要出門。現在回想起來，的確有點遠，但當時初生牛犢，沒多想就接下了公司的這個任務。<br/>
+  <entry>
+    <title type="html"><![CDATA[東急リバブル 牛刀初試]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/01/24/project-toukyu/"/>
+    <updated>2013-01-24T10:21:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/01/24/project-toukyu</id>
+    <content type="html"><![CDATA[<p>　　2007年，五月從公司組織的富士山旅遊回來後，終於迎來了我在日本的第一個項目。地點在横浜，從我當時住的東京都江東区去需要有一個多小時的電車，這意味著我每天需要七點十五分就要出門。現在回想起來，的確有點遠，但當時初生牛犢，沒多想就接下了公司的這個任務。<br/>
 　　項目的老大是一個愛吃糖的日本老頭，每次邊吃著糖邊和坐在旁邊的leader聊著項目的事情，幾乎我們面前正經吃過飯。leader是一個很友善的日本人，經常“呵呵”大笑，而且和我也有共同語言&mdash;<strong><a href="http://baike.baidu.com/view/5931.htm" title="日本國民機器人動畫">ガンダム</a></strong>。其他成員還有四個日本人，八個中國人，總共十四人的團隊。<br/>
 　　項目是日立製作所的一個不動產的管理系統，客戶是東急リバブル，我們十四個人負責的是物件模塊，負責待售、待租房屋信息的管理。<br/>
 　　我是從基本設計階段加入的，第一個任務就是看圖說故事，參照設計原型，寫出設計文檔，讓開發人員知道這些頁面是做什麼的，互相有什麼聯繫。本以為直接寫代碼的活，沒想到是從設計開始！？讓非科班出身的日語一級的我有點措手不及，來日本快半年了，第一次有挫折感，＞＜。不過還好有朝鮮族的同事，他們的日語都頂呱呱，幫了我不少，而且後來我也發現竅門，設計文檔其實挺死板的，老大們的要求就是言簡意賅，把事情說清楚就好，也不需要你寫得多漂亮，所以參照已經寫好的文檔，修修改改也基本完成了七、八成，剩下的自己再發揮一下。總體來說，設計這部分當時我的確沒做得太好，也就是勉強及格，主要是做得太慢。一個多月後就進入了開發階段，我的show time即將開始了。<br/>
@@ -490,130 +236,7 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
 　　在大森的主要任務的就是系統測試。自己寫文檔，自己開發測試，很順利，沒發現什麼問題，但一旦和其他模塊一起測試，就各種問題都來了。而且在大森還有來自客戶東急リバブル的負責人，客戶自己也組織自己的員工加入測試，本以為工作地點近了，可以輕鬆點，但真正的挑戰才剛開始。每天光自己測試就問題一大堆，還要兼顧其他團隊和客戶測出來bug，加上每天各種進度會，各種壓力無限大。不過對比最大的契約團隊我們算是輕鬆多了，估計是他們之前在中國時候開發的時候溝通不夠好，問題特別多，所以最後索性把人都叫到日本直接和設計團隊一起開發，看著他們的bse夾在設計和開發之間那種著急啊，沒法形容。迫於進度上的壓力，我們團隊最後也沒辦法也請了外援－－韓國測試團。<br/>
 　　日本人開會，中國人開發，韓國人測試。這樣大約又折騰了半年，慢慢的，契約團隊的中國開發人員慢慢撤走了，我們的韓國測試團也退場了，項目終於上線進入保守階段，最後我也退出了項目。<br/>
 　　牛刀初試，一絲不苟的工作態度是這個團隊教會我最寶貴的東西。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/25/project-self/">文斯雜談 醞釀已久</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/24/project-reocar/">瑞卡租車 如願以償</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/kamiiyu">@kamiiyu</a> on GitHub
-  
-  <script type="text/javascript">
-    $.domReady(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'kamiiyu',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/109263459124367153450?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - 文斯 -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>
