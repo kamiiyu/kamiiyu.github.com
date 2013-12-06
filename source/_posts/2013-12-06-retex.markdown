@@ -44,7 +44,12 @@ Retext的界面是基於qt的，而決定Live View外觀的是CSS。
 另外，雖然SUSE或者Ubuntu的ReText都有圖形界面的配置畫面，但是配置項目都很少（Ubuntu的稍微多點），但還是原不能符合我的期望，因此以下的配置都是按照[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)直接修改配置文件的。
   
 #### 配置文件
-一般配置文件在`~/.config/ReText project/ReText.conf`
+默認的配置文件在`~/.config/ReText project/ReText.conf`。其他的具體配置細節可以參考[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)。  
+在這裏，我只關心兩個問題——界面與Live View如何配置。  
+  
+#### 界面
+*appStyleSheet*配置項是關於  
+
 
 
 
