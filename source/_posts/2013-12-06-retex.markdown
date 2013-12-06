@@ -41,9 +41,10 @@ SUSE13.1安裝後的版本爲：
 在化妝前，首先需要弄清楚兩部分東西，一個是界面，一個Live View。
 Retext的界面是基於qt的，而決定Live View外觀的是CSS。  
 所以如果想要改造ReText就需要從這兩部分着手。  
-另外，雖然SUSE或者Ubuntu的ReText都有圖形界面的配置畫面，但是配置項目都很少（Ubuntu的稍微多點），但還是原不能符合我的期望，因此一下的配置都是按照官方文檔直接修改配置文件的。
+另外，雖然SUSE或者Ubuntu的ReText都有圖形界面的配置畫面，但是配置項目都很少（Ubuntu的稍微多點），但還是原不能符合我的期望，因此以下的配置都是按照[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)直接修改配置文件的。
   
-#### 界面
+#### 配置文件
+一般配置文件在`~/.config/ReText project/ReText.conf`
 
 
 
