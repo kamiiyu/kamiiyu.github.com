@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 layout: nil
 ---
@@ -5,3 +6,9 @@ User-agent: *
 Disallow: 
 
 Sitemap: {{ site.url }}/sitemap.xml 
+=======
+User-agent: *
+Disallow: 
+
+Sitemap: http://kamiiyu.github.com/sitemap.xml 
+>>>>>>> d1a114e14eaedea506c2e8d69c18b729fd7605ce

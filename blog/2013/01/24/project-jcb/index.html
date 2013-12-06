@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>JCBカード 乘风破浪 - 文斯雜談凸^-^凸</title>
+  <meta name="author" content="文斯">
+
+  
+  <meta name="description" content="　　2008年，還是日立製作所的項目，客戶是更難纏的JCB，注定了這個項目是個難啃的骨頭。我加入的時候項目已經做了一年多，已經處於系統測試階段，之前開發的整個團隊由於各種原因已經撤走，只剩下文檔和代碼由我們接手，系統三個月後上線⋯⋯
+　　三個月內，用最短的時間熟悉系統， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kamiiyu.github.com/blog/2013/01/24/project-jcb/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="文斯雜談凸^-^凸" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38035892-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">文斯雜談凸^-^凸</a></h1>
+  
+    <h2>骨子里流着技術的血液，但這不是技術博客~_~;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:kamiiyu.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/archives">Archive</a></li>
+  <li><a href="/religions/">Religions</a></li>
+  <li><a href="/my-ruby-way/">Ruby</a></li>
+  <li><a href="/start-inux/">*inux</a></li>
+  <li><a href="/projects/">Projects</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">JCBカード 乘风破浪</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-24T14:26:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>　　2008年，還是日立製作所的項目，客戶是更難纏的JCB，注定了這個項目是個難啃的骨頭。我加入的時候項目已經做了一年多，已經處於系統測試階段，之前開發的整個團隊由於各種原因已經撤走，只剩下文檔和代碼由我們接手，系統三個月後上線⋯⋯<br/>
+　　三個月內，用最短的時間熟悉系統，用最短的時間查找並修改測出來的bug，這些也都還好，最麻煩的由於客戶是JCB，整個開發文檔一點都馬虎不得，大大小小從設計到單元測試的文檔全都需要經過客戶review。修改bug的過程更令人髮指，也許只是修改一行代碼，但卻要提交十幾頁的測試結果文檔作為審查，首先是團隊review然後是日立review，沒問題放服務器測試後在整理n張客戶能看懂的測試結果文檔，客戶確認後再發佈到正式服務器。<br/>
+　　要件設計&mdash;>基本設計&mdash;>詳細設計&mdash;>編寫代碼&mdash;>單元測試&mdash;>結合測試&mdash;>系統測試&mdash;>發佈後確認。不管是修改bug或者追加功能，不管時間多麼緊，層層review一步都不能少。過程看似死板，但是就是這種紀律性讓我們的團隊在這麼困難的情況下生存了下來，系統上線後，新版本的升級順理成章的還是由我們來負責，而且慢慢也把更多的模塊委託給我們。<br/>
+　　我剛去的時候團隊只有7個人，最終發展為三十個人的團隊，中日成員大概對半分，上面一個tl一個pm，再分兩個小團隊，一個負責人機互動頁面，一個負責外部數據的交換和處理，我們所屬的是中期審查模塊。系統另外還分為初期審查、online（臨時審查）三部分，再加上一個業務的團隊，一個運維團隊，總共五team人，總共有100多人。<br/>
+　　這個系統是JCB基幹系統JENIUS下面的一個子系統ramda，主要負責信用卡用戶信用度管理，為基幹系統提供信用度參考。用戶的信用數據來源主要來自第三方和JCB自己的數據庫，因此這次項目的重點是第三方和JCB的數據整合。第三方機構就有四家，而JCB的數據也分散在好幾個子系統裡面，測試數據做起來異常的費勁。由於涉及的外部系統接口眾多，而且稍有點錯誤，也許就會讓客戶蒙受巨大損失，沒有如此苛刻的開發流程是根本保證不了質量的。<br/>
+　　日立的項目，用的是日立自己的解決方案Justware，不過數據庫就用了更出名oracle，整個框架還是那麼的實而不華，開發人員不需要專注技術細節，只需把握業務細節，不能說很有效率，但是很實用，把犯錯的機會降到最低。部署起來也算方便，圖形化，簡單直接。<br/>
+　　整個項目做了兩年多，經歷了三次大的版本升級，直到我2011年回國的的時候，還在做，不夠已經大部份轉為保守了，幾乎沒新功能的追加了。<br/>
+　　乘风破浪，項目的難度本身並不高，但是要求卻一點不低，深深的感受到日本人追求細節的那種令人髮指的執著，哪怕空格是用全角還是半角都會仔細檢查。從開始無數次的review不通過重寫文檔到後來的一次通過，比攻克一個技術難題更有成就感。<br/>
+　　商業系統開發發展必然朝越來越模式化的發展，這樣企業承擔的成本也許高點，但大大降低了失敗的機率，因為整個項目的成敗靠的整個團隊而不是個人。<br/>
+　　兩個項目，五年的日本開發經驗，讓我獲益良多，但是我還是決定回廣州⋯⋯</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">文斯</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-24T14:26:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kamiiyu.github.com/blog/2013/01/24/project-jcb/" data-via="spicekamiiyu@gmail.com" data-counturl="http://kamiiyu.github.com/blog/2013/01/24/project-jcb/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/24/project-toukyu/" title="Previous Post: 東急リバブル 牛刀初試">&laquo; 東急リバブル 牛刀初試</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/01/24/project-reocar/" title="Next Post: 瑞卡租車 如願以償">瑞卡租車 如願以償 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/25/project-self/">文斯雜談 醞釀已久</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/24/project-reocar/">瑞卡租車 如願以償</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kamiiyu">@kamiiyu</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kamiiyu',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/109263459124367153450?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 文斯 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
