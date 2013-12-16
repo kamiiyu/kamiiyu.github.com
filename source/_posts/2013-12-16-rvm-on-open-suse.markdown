@@ -14,7 +14,7 @@ P.S.[YaST](http://zh.wikipedia.org/wiki/YaST)從圖形化系統維護的角度�
 
     2013-12-16 12:59:28 <3> linux-en59.site(4285) [Y2Ruby] binary/YRuby.cc(callClient):238 cannot require yast:cannot load such file -- fast_gettext at /usr/lib64/ruby/2.0.0/rubygems/core_ext/kernel_
 
-很明顯是Ruby的問題，`fast_gettext`非常`可疑`。  
+很明顯是Ruby的問題，`fast_gettext`非常可疑。  
 `gem search fast_gettext`果然發現的確有fast_gettext這個gem，果斷install。  
 
     gem install fast_gettext
