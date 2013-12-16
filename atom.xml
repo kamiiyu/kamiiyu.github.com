@@ -4,7 +4,7 @@
   <title><![CDATA[文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2013-12-16T16:53:37+08:00</updated>
+  <updated>2013-12-16T17:04:51+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -44,9 +44,9 @@ P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>從圖形化系統維護
   
   <entry>
     <title type="html"><![CDATA[ReText——Linux下的MarkDown利器]]></title>
-    <link href="http://kamiiyu.github.io/blog/2013/12/06/retex/"/>
+    <link href="http://kamiiyu.github.io/blog/2013/12/06/retext/"/>
     <updated>2013-12-06T14:43:00+08:00</updated>
-    <id>http://kamiiyu.github.io/blog/2013/12/06/retex</id>
+    <id>http://kamiiyu.github.io/blog/2013/12/06/retext</id>
     <content type="html"><![CDATA[<h2>尋覓Linux下的MarkDown編輯器</h2>
 
 <p>最近由於工作的關係，經常會使用MarkDown寫東西。用MarkDown那就一定離不了支持MarkDown的編輯器。我對MarkDown編輯器的要求只有兩點：</p>
