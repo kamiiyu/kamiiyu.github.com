@@ -9,9 +9,8 @@
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="　　要問Jack是不是管理員，代碼一般有三種寫法。 php 1
-if is_admin(Jack){ echo &quot;Hi, Jack!&quot;; } java 1
-if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
+  <meta name="description" content="尋覓Linux下的MarkDown編輯器 最近由於工作的關係，經常會使用MarkDown寫東西。用MarkDown那就一定離不了支持MarkDown的編輯器。我對MarkDown編輯器的要求只有兩點： 可以自定義CSS，因爲我喜歡用黑色等暗色系的顏色作爲寫作和預覽時的底色
+有同步的Live &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +80,136 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/06/retex/">ReTex——Linux下的MarkDown利器</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-06T14:43:00+08:00" pubdate data-updated="true">Dec 6<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>尋覓Linux下的MarkDown編輯器</h2>
+
+<p>最近由於工作的關係，經常會使用MarkDown寫東西。用MarkDown那就一定離不了支持MarkDown的編輯器。我對MarkDown編輯器的要求只有兩點：</p>
+
+<ul>
+<li>可以自定義CSS，因爲我喜歡用黑色等暗色系的顏色作爲寫作和預覽時的底色</li>
+<li>有同步的Live View功能，不是另外啓動瀏覽器預覽html</li>
+</ul>
+
+
+<p>在Mac和Windows下非常容易就找到了符合以上兩點要求的編輯器——Mac的<a href="http://mouapp.com/" title="Mou">Mou</a>（完全免費）和Windows下的<a href="http://markdownpad.com/" title="MarkdownPad">MarkdownPad</a>（標準版，免費）。它們都是非常優秀的編輯器，關於它們兩就不多說，是該平臺下MarkDown編輯器的不二之選。</p>
+
+<p>由於平時工作至少50%時間還是在Linux下的，如果在Linux也能找到那麼方便的MarkDown編輯器就方便多了。試過很多Linux下的MarkDown編輯器，愣是沒找到像Mou或者MarkdownPad安裝即用的好編輯器。也曾經試過ReText，安裝的確方便，Ubuntu下<code>apt-install retext</code>就可以了，雖然也有Live View（這在Linux下已經非常難得了），但是默認安裝後界面的簡陋，讓我這樣已經被Mac界面寵壞的人難以接受。而且最重要的是在圖形界面配置沒有找到使編輯器底色設爲暗色系的選項，這點直接導致我“放棄”了ReText。</p>
+
+<p>“放棄”ReText後，我試過很多其他解決方案。</p>
+
+<p>在虛擬機中的Windows使用MarkdownPad，現在Linux下的VirtualBox的體驗也還不錯，問題是解決了，但是這樣做感覺非常笨，太過小題大作，果斷放棄。</p>
+
+<p>用在線的雲MarkDown編輯器，寫作的體驗很好，但是還是不太方便，寫點東西就得佔有一個瀏覽器窗口，而我習慣一般寫東西的同時有得開瀏覽器和一些離線的資源（pdf）查資料，用Alt+Tab不斷在瀏覽器、編輯器、pdf中不斷切換。使用在線編輯器後這樣爽快的切換就很難再進行了，最後還是放棄。</p>
+
+<p>使用其他一些誇平臺編輯器的MarkDown插件。我也曾經試過Sublime的sublimetext-markdown-preview之類的插件，第一個問題可以說是完美解決了，但是同步的Live View的需求還是不能滿足，雖然Sublime寫代碼是一流，但是最終還是忍痛放棄了。</p>
+
+<h2>重拾ReText</h2>
+
+<p>試過了多種方法後，還是覺得原生的MarkDown編輯器靠譜。剛好最近SUSE13.1發佈，安裝過後感覺KDE的用戶體驗上比Ubuntu自己的Unity有過之而無不及。而且本來玩Linux就是爲了折騰，沒有安裝即用的MarkDown編輯器，自己配一個總可以吧。所以最後決定在SUSE上再次挑戰ReTest！</p>
+
+<h3>安裝</h3>
+
+<p>SUSE有自己的一套軟件管理工具，類似Ubuntu的apt-get，這裏就不多做介紹了，直接在終端運行下面命令即可。ReText還是比較流行的Linux軟件，他管理工具一般改一下命令也都應該可以安裝。當然，也可以參考ReText的<a href="http://sourceforge.net/projects/retext/">Page</a>，折騰一下源碼安裝。</p>
+
+<pre><code>sudo zypper install retext
+</code></pre>
+
+<p>SUSE13.1安裝後的版本爲：<br/>
+<img src="/images/2013-12-06-retex/version.png" alt="版本" /><br/>
+基於Python2.x（ReText最新版本基於Python3.x的）。</p>
+
+<h3>配置</h3>
+
+<p>默認安裝後的界面還是比較簡陋，所以接下來的重點就是如何給ReText做手術。<br/>
+在手術前，首先需要弄清楚兩部分東西，一個是界面，一個Live View。
+Retext的界面是基於Qt的，而決定Live View外觀的是CSS。<br/>
+所以如果想要改造ReText就需要從這兩部分着手。<br/>
+另外，雖然SUSE或者Ubuntu的ReText都有圖形界面的配置畫面，但是配置項目都很少（Ubuntu的稍微多點），但還是不能符合我的期望，因此以下的配置都是按照<a href="http://sourceforge.net/p/retext/wiki/Configuration%20file/">官方文檔</a>直接修改配置文件的。</p>
+
+<h4>配置文件</h4>
+
+<p>默認的配置文件在<code>~/.config/ReText project/ReText.conf</code>，其他的具體配置細節可以參考<a href="http://sourceforge.net/p/retext/wiki/Configuration%20file/">官方文檔</a>。<br/>
+在這裏，我只關心兩個問題——界面與Live View如何配置。</p>
+
+<h4>界面</h4>
+
+<p><em>appStyleSheet</em>是關於ReText程序界面的配置。ReText的界面是使用Qt的，因此這個配置實際就是<a href="http://qt-project.org/doc/qt-4.8/stylesheet.html">Qt Style Sheets</a>的配置。<br/>
+像我這樣的懶人，實在不想去折騰Qt Style Sheets語法了，有沒有更簡便的配置方法呢？懷着試一試的心情，去github逛了一下，發現還真有人和我的想法是一樣的——<a href="https://github.com/ColinDuquesnoy/QDarkStyleSheet">QDarkStyleSheet</a>。<br/>
+這裏我稍微取巧了一下，由於我只需要程序界面的配置，因此我只直接下載Qt的配置<a href="https://github.com/ColinDuquesnoy/QDarkStyleSheet/blob/master/qdarkstyle/style.qss">qss</a>，然後把ReText的<em>appStyleSheet</em>直接指向該Style Sheet。
+ReText.conf配置：</p>
+
+<pre><code>appStyleSheet=/home/kamiiyu/.config/ReText project/style.qss
+</code></pre>
+
+<h4>Live View</h4>
+
+<p>與Qt配置同樣的思路，看看github上有沒有現成的好東西。對比Qt配置，MarkDown的css配置是容易找多了。最後我選擇的是<a href="https://github.com/jasonm23/markdown-css-themes">markdown-css-themes</a>中的<a href="https://github.com/jasonm23/markdown-css-themes/blob/gh-pages/screen.css">screen.css</a>。</p>
+
+<p>ReText.conf配置：</p>
+
+<pre><code>styleSheet=/home/kamiiyu/.config/ReText project/screen.css
+</code></pre>
+
+<p>大功告成，華麗變身後的ReText，帥多了！<br/>
+手術前：<br/>
+<img src="/images/2013-12-06-retex/origin.png" alt="原始圖" />
+手術後：<br/>
+<img src="/images/2013-12-06-retex/all.png" alt="完成圖" /></p>
+
+<p>以下是我的ReText.conf，僅供參考。</p>
+
+<pre><code>[General]
+recentFileList=/home/kamiiyu/kamiiyu.github.com/source/_posts/2013-12-06-retex.markdown
+font=\x6587\x6cc9\x9a7f\x7b49\x5bbd\x6b63\x9ed1
+fontSize=9
+styleSheet=/home/kamiiyu/.config/ReText project/screen.css
+appStyleSheet=/home/kamiiyu/.config/ReText project/appstyle.css
+restorePreviewState=true
+tabWidth=4
+saveWindowGeometry=true
+windowGeometry=@ByteArray(\x1\xd9\xd0\xcb\0\x1\0\0\0\0\a\x80\0\0\0T\0\0\n\xa3\0\0\x2\xc6\0\0\a\x82\0\0\0k\0\0\n\xa1\0\0\x2\xc2\0\0\0\0\0\0)
+previewState=true
+useWebKit=true
+</code></pre>
+
+<h2>小遺憾</h2>
+
+<p>OPEN SUSE默認安裝的ReText還是有點不盡人意的地方。<br/>
+例如，滾動左邊的工作區的時候，右邊的Live View並不會相應的自動滾動。ReText的開發Tickets也有人彙報過這個<a href="http://sourceforge.net/p/retext/tickets/52/">問題</a>，但似乎還是沒有很好的解決。可能是和環境有關係，因爲最新版本的ReText其實已經建議運行在Python3的環境下，但OPEN SUSE默認還是Python2。有機會在Ubuntu在驗證一下這個問題。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -510,6 +639,10 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/12/06/retex/">ReTex——Linux下的MarkDown利器</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a>
       </li>
     
@@ -523,10 +656,6 @@ if (Jack.is_admin()){ System.out.println(&quot;Hi, Jack!&quot &hellip;">
     
       <li class="post">
         <a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/24/project-reocar/">瑞卡租車 如願以償</a>
       </li>
     
   </ul>
