@@ -6,4 +6,4 @@ comments: true
 sharing: true
 footer: true
 ---
-* [ReTex——Linux下的MarkDown利器](blog/2013/12/06/retex/)
+* [ReText——Linux下的MarkDown利器](blog/2013/12/06/retext/)
