@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - 文斯雜談凸^-^凸</title>
+  <title>OPEN SUSE下的RVM小坑 - 文斯雜談凸^-^凸</title>
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="Blog Archive 2013 OPEN SUSE下的RVM小坑
-Dec 16 2013 ReTex——Linux下的MarkDown利器
-Dec 06 2013 Jack是不是管理員？
-Jan 29 2013 posted in ruby 被遺棄的聖經
-Jan 28 2013 文斯雜談 &hellip;">
+  <meta name="description" content="OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。
+P.S.YaST從圖形化系統維護的角度來看太好用了，感覺比Ubuntu的強。 用RVM安裝Ruby後， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@ Jan 28 2013 文斯雜談 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kamiiyu.github.io/blog/archives/">
+  <link rel="canonical" href="http://kamiiyu.github.io/blog/2013/12/16/rvm-on-open-suse/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,115 +80,100 @@ Jan 28 2013 文斯雜談 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">OPEN SUSE下的RVM小坑</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-16T15:48:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。<br/>
+P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>從圖形化系統維護的角度來看太好用了，感覺比Ubuntu的強。<br/>
+<img src="/images/2013-12-16/yast.png" alt="yast" />
+用RVM安裝Ruby後，上圖的所有項目的子窗口都無法再彈出了。試着在命令行用root身份登陸運行<code>yast2 --qt</code>，這樣是運行是沒問題的。
+<img src="/images/2013-12-16/command-line.png" alt="command-line" />
+後來差了一下yast的日誌<code>/var/log/YaST2/y2log</code>，發現以下的錯誤：</p>
 
-  
-  <h2>2013</h2>
+<pre><code>2013-12-16 12:59:28 &lt;3&gt; linux-en59.site(4285) [Y2Ruby] binary/YRuby.cc(callClient):238 cannot require yast:cannot load such file -- fast_gettext at /usr/lib64/ruby/2.0.0/rubygems/core_ext/kernel_
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2013/12/16/rvm-on-open-suse/">OPEN SUSE下的RVM小坑</a></h1>
-<time datetime="2013-12-16T15:48:00+08:00" pubdate><span class='month'>Dec</span> <span class='day'>16</span> <span class='year'>2013</span></time>
+<p>很明顯是Ruby的問題，<code>fast_gettext</code>非常<code>可疑</code>。<br/>
+<code>gem search fast_gettext</code>果然發現的確有fast_gettext這個gem，果斷install。</p>
 
+<pre><code>gem install fast_gettext
+</code></pre>
 
-</article>
+<p>問題解決！
+<img src="/images/2013-12-16/command-line2.png" alt="command-line2" />
+原來YaST也用到Ruby！</p>
 
-
-
-<article>
-  
-<h1><a href="/blog/2013/12/06/retex/">ReTex——Linux下的MarkDown利器</a></h1>
-<time datetime="2013-12-06T14:43:00+08:00" pubdate><span class='month'>Dec</span> <span class='day'>06</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a></h1>
-<time datetime="2013-01-29T15:29:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a></h1>
-<time datetime="2013-01-28T10:35:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>28</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/25/project-self/">文斯雜談 醞釀已久</a></h1>
-<time datetime="2013-01-25T15:21:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>25</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a></h1>
-<time datetime="2013-01-25T11:22:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>25</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/24/project-reocar/">瑞卡租車 如願以償</a></h1>
-<time datetime="2013-01-24T16:47:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>24</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/24/project-jcb/">JCBカード 乘风破浪</a></h1>
-<time datetime="2013-01-24T14:26:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>24</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/24/project-toukyu/">東急リバブル 牛刀初試</a></h1>
-<time datetime="2013-01-24T10:21:00+08:00" pubdate><span class='month'>Jan</span> <span class='day'>24</span> <span class='year'>2013</span></time>
-
-
-</article>
-
+<p>關於gettext可以參考<a href="http://zh.wikipedia.org/wiki/Gettext">維基</a>，fast_gettext可參考<a href="https://github.com/grosser/fast_gettext">這裏</a>。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">文斯</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-16T15:48:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kamiiyu.github.io/blog/2013/12/16/rvm-on-open-suse/" data-via="spicekamiiyu@gmail.com" data-counturl="http://kamiiyu.github.io/blog/2013/12/16/rvm-on-open-suse/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/06/retex/" title="Previous Post: ReTex——Linux下的MarkDown利器">&laquo; ReTex——Linux下的MarkDown利器</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

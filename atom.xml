@@ -4,7 +4,7 @@
   <title><![CDATA[文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2013-12-16T15:43:00+08:00</updated>
+  <updated>2013-12-16T16:26:31+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OPEN SUSE下的RVM小坑]]></title>
+    <link href="http://kamiiyu.github.io/blog/2013/12/16/rvm-on-open-suse/"/>
+    <updated>2013-12-16T15:48:00+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2013/12/16/rvm-on-open-suse</id>
+    <content type="html"><![CDATA[<p>OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。<br/>
+P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>從圖形化系統維護的角度來看太好用了，感覺比Ubuntu的強。<br/>
+<img src="http://kamiiyu.github.io/images/2013-12-16/yast.png" alt="yast" />
+用RVM安裝Ruby後，上圖的所有項目的子窗口都無法再彈出了。試着在命令行用root身份登陸運行<code>yast2 --qt</code>，這樣是運行是沒問題的。
+<img src="http://kamiiyu.github.io/images/2013-12-16/command-line.png" alt="command-line" />
+後來差了一下yast的日誌<code>/var/log/YaST2/y2log</code>，發現以下的錯誤：</p>
+
+<pre><code>2013-12-16 12:59:28 &lt;3&gt; linux-en59.site(4285) [Y2Ruby] binary/YRuby.cc(callClient):238 cannot require yast:cannot load such file -- fast_gettext at /usr/lib64/ruby/2.0.0/rubygems/core_ext/kernel_
+</code></pre>
+
+<p>很明顯是Ruby的問題，<code>fast_gettext</code>非常<code>可疑</code>。<br/>
+<code>gem search fast_gettext</code>果然發現的確有fast_gettext這個gem，果斷install。</p>
+
+<pre><code>gem install fast_gettext
+</code></pre>
+
+<p>問題解決！
+<img src="http://kamiiyu.github.io/images/2013-12-16/command-line2.png" alt="command-line2" />
+原來YaST也用到Ruby！</p>
+
+<p>關於gettext可以參考<a href="http://zh.wikipedia.org/wiki/Gettext">維基</a>，fast_gettext可參考<a href="https://github.com/grosser/fast_gettext">這裏</a>。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ReTex——Linux下的MarkDown利器]]></title>

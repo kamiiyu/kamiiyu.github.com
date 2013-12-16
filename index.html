@@ -9,8 +9,8 @@
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="尋覓Linux下的MarkDown編輯器 最近由於工作的關係，經常會使用MarkDown寫東西。用MarkDown那就一定離不了支持MarkDown的編輯器。我對MarkDown編輯器的要求只有兩點： 可以自定義CSS，因爲我喜歡用黑色等暗色系的顏色作爲寫作和預覽時的底色
-有同步的Live &hellip;">
+  <meta name="description" content="OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。
+P.S.YaST從圖形化系統維護的角度來看太好用了，感覺比Ubuntu的強。 用RVM安裝Ruby後， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/16/rvm-on-open-suse/">OPEN SUSE下的RVM小坑</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-16T15:48:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。<br/>
+P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>從圖形化系統維護的角度來看太好用了，感覺比Ubuntu的強。<br/>
+<img src="/images/2013-12-16/yast.png" alt="yast" />
+用RVM安裝Ruby後，上圖的所有項目的子窗口都無法再彈出了。試着在命令行用root身份登陸運行<code>yast2 --qt</code>，這樣是運行是沒問題的。
+<img src="/images/2013-12-16/command-line.png" alt="command-line" />
+後來差了一下yast的日誌<code>/var/log/YaST2/y2log</code>，發現以下的錯誤：</p>
+
+<pre><code>2013-12-16 12:59:28 &lt;3&gt; linux-en59.site(4285) [Y2Ruby] binary/YRuby.cc(callClient):238 cannot require yast:cannot load such file -- fast_gettext at /usr/lib64/ruby/2.0.0/rubygems/core_ext/kernel_
+</code></pre>
+
+<p>很明顯是Ruby的問題，<code>fast_gettext</code>非常<code>可疑</code>。<br/>
+<code>gem search fast_gettext</code>果然發現的確有fast_gettext這個gem，果斷install。</p>
+
+<pre><code>gem install fast_gettext
+</code></pre>
+
+<p>問題解決！
+<img src="/images/2013-12-16/command-line2.png" alt="command-line2" />
+原來YaST也用到Ruby！</p>
+
+<p>關於gettext可以參考<a href="http://zh.wikipedia.org/wiki/Gettext">維基</a>，fast_gettext可參考<a href="https://github.com/grosser/fast_gettext">這裏</a>。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -640,6 +696,10 @@ useWebKit=true
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/12/16/rvm-on-open-suse/">OPEN SUSE下的RVM小坑</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/12/06/retex/">ReTex——Linux下的MarkDown利器</a>
       </li>
     
@@ -653,10 +713,6 @@ useWebKit=true
     
       <li class="post">
         <a href="/blog/2013/01/25/project-self/">文斯雜談 醞釀已久</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a>
       </li>
     
   </ul>
