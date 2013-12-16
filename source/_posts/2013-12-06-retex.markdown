@@ -17,7 +17,7 @@ categories:
   
 “放棄”ReText後，我試過很多其他解決方案。  
   
-在虛擬機中的Windows使用MarkdownPad，現在Linux下的VirtualBox的體驗也還不錯，問題是解決了，但是這樣做感覺非常笨，太過小體大作，果斷放棄。  
+在虛擬機中的Windows使用MarkdownPad，現在Linux下的VirtualBox的體驗也還不錯，問題是解決了，但是這樣做感覺非常笨，太過小題大作，果斷放棄。  
   
 用在線的雲MarkDown編輯器，寫作的體驗很好，但是還是不太方便，寫點東西就得佔有一個瀏覽器窗口，而我習慣一般寫東西的同時有得開瀏覽器和一些離線的資源（pdf）查資料，用Alt+Tab不斷在瀏覽器、編輯器、pdf中不斷切換。使用在線編輯器後這樣爽快的切換就很難再進行了，最後還是放棄。  
   
@@ -37,19 +37,53 @@ SUSE13.1安裝後的版本爲：
 基於Python2.x（ReText最新版本基於Python3.x的）。  
 
 ### 配置
-默認安裝後的界面還是比較簡陋，所以接下來的重點就是如何給ReText化妝了。  
-在化妝前，首先需要弄清楚兩部分東西，一個是界面，一個Live View。
-Retext的界面是基於qt的，而決定Live View外觀的是CSS。  
+默認安裝後的界面還是比較簡陋，所以接下來的重點就是如何給ReText做手術。  
+在手術前，首先需要弄清楚兩部分東西，一個是界面，一個Live View。
+Retext的界面是基於Qt的，而決定Live View外觀的是CSS。  
 所以如果想要改造ReText就需要從這兩部分着手。  
-另外，雖然SUSE或者Ubuntu的ReText都有圖形界面的配置畫面，但是配置項目都很少（Ubuntu的稍微多點），但還是原不能符合我的期望，因此以下的配置都是按照[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)直接修改配置文件的。
+另外，雖然SUSE或者Ubuntu的ReText都有圖形界面的配置畫面，但是配置項目都很少（Ubuntu的稍微多點），但還是不能符合我的期望，因此以下的配置都是按照[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)直接修改配置文件的。
   
 #### 配置文件
-默認的配置文件在`~/.config/ReText project/ReText.conf`。其他的具體配置細節可以參考[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)。  
+默認的配置文件在`~/.config/ReText project/ReText.conf`，其他的具體配置細節可以參考[官方文檔](http://sourceforge.net/p/retext/wiki/Configuration%20file/)。  
 在這裏，我只關心兩個問題——界面與Live View如何配置。  
   
 #### 界面
-*appStyleSheet*配置項是關於  
+*appStyleSheet*是關於ReText程序界面的配置。ReText的界面是使用Qt的，因此這個配置實際就是[Qt Style Sheets](http://qt-project.org/doc/qt-4.8/stylesheet.html)的配置。  
+像我這樣的懶人，實在不想去折騰Qt Style Sheets語法了，有沒有更簡便的配置方法呢？懷着試一試的心情，去github逛了一下，發現還真有人和我的想法是一樣的——[QDarkStyleSheet](https://github.com/ColinDuquesnoy/QDarkStyleSheet)。  
+這裏我稍微取巧了一下，由於我只需要程序界面的配置，因此我只直接下載Qt的配置[qss](https://github.com/ColinDuquesnoy/QDarkStyleSheet/blob/master/qdarkstyle/style.qss)，然後把ReText的*appStyleSheet*直接指向該Style Sheet。 
+ReText.conf配置：   
 
+    appStyleSheet=/home/kamiiyu/.config/ReText project/style.qss
 
+#### Live View
+與Qt配置同樣的思路，看看github上有沒有現成的好東西。對比Qt配置，MarkDown的css配置是容易找多了。最後我選擇的是[markdown-css-themes](https://github.com/jasonm23/markdown-css-themes)中的[screen.css](https://github.com/jasonm23/markdown-css-themes/blob/gh-pages/screen.css)。  
 
+ReText.conf配置：
 
+    styleSheet=/home/kamiiyu/.config/ReText project/screen.css
+
+大功告成，華麗變身後的ReText，帥多了！  
+手術前：  
+![原始圖](/images/2013-12-06-retex/origin.png)
+手術後：  
+![完成圖](/images/2013-12-06-retex/all.png)
+
+以下是我的ReText.conf，僅供參考。  
+
+    [General]
+    recentFileList=/home/kamiiyu/kamiiyu.github.com/source/_posts/2013-12-06-retex.markdown
+    font=\x6587\x6cc9\x9a7f\x7b49\x5bbd\x6b63\x9ed1
+    fontSize=9
+    styleSheet=/home/kamiiyu/.config/ReText project/screen.css
+    appStyleSheet=/home/kamiiyu/.config/ReText project/appstyle.css
+    restorePreviewState=true
+    tabWidth=4
+    saveWindowGeometry=true
+    windowGeometry=@ByteArray(\x1\xd9\xd0\xcb\0\x1\0\0\0\0\a\x80\0\0\0T\0\0\n\xa3\0\0\x2\xc6\0\0\a\x82\0\0\0k\0\0\n\xa1\0\0\x2\xc2\0\0\0\0\0\0)
+    previewState=true
+    useWebKit=true
+
+##小遺憾
+
+OPEN SUSE默認安裝的ReText還是有點不盡人意的地方。  
+例如，滾動左邊的工作區的時候，右邊的Live View並不會相應的自動滾動。ReText的開發Tickets也有人彙報過這個[問題](http://sourceforge.net/p/retext/tickets/52/)，但似乎還是沒有很好的解決。可能是和環境有關係，因爲最新版本的ReText其實已經建議運行在Python3的環境下，但OPEN SUSE默認還是Python2。有機會在Ubuntu在驗證一下這個問題。  
