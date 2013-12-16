@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ReTex——Linux下的MarkDown利器"
+title: "ReText——Linux下的MarkDown利器"
 date: 2013-12-06 14:43
 comments: true
 categories: 
@@ -25,7 +25,7 @@ categories:
   
   
 ## 重拾ReText
-試過了多種方法後，還是覺得原生的MarkDown編輯器靠譜。剛好最近SUSE13.1發佈，安裝過後感覺KDE的用戶體驗上比Ubuntu自己的Unity有過之而無不及。而且本來玩Linux就是爲了折騰，沒有安裝即用的MarkDown編輯器，自己配一個總可以吧。所以最後決定在SUSE上再次挑戰ReTest！  
+試過了多種方法後，還是覺得原生的MarkDown編輯器靠譜。剛好最近SUSE13.1發佈，安裝過後感覺KDE的用戶體驗上比Ubuntu自己的Unity有過之而無不及。而且本來玩Linux就是爲了折騰，沒有安裝即用的MarkDown編輯器，自己配一個總可以吧。所以最後決定在SUSE上再次挑戰ReText！  
   
 ### 安裝
 SUSE有自己的一套軟件管理工具，類似Ubuntu的apt-get，這裏就不多做介紹了，直接在終端運行下面命令即可。ReText還是比較流行的Linux軟件，他管理工具一般改一下命令也都應該可以安裝。當然，也可以參考ReText的[Page](http://sourceforge.net/projects/retext/)，折騰一下源碼安裝。  
