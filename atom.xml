@@ -4,7 +4,7 @@
   <title><![CDATA[文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2013-12-16T16:41:06+08:00</updated>
+  <updated>2013-12-16T16:53:37+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -43,7 +43,7 @@ P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>從圖形化系統維護
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[ReTex——Linux下的MarkDown利器]]></title>
+    <title type="html"><![CDATA[ReText——Linux下的MarkDown利器]]></title>
     <link href="http://kamiiyu.github.io/blog/2013/12/06/retex/"/>
     <updated>2013-12-06T14:43:00+08:00</updated>
     <id>http://kamiiyu.github.io/blog/2013/12/06/retex</id>
@@ -71,7 +71,7 @@ P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>從圖形化系統維護
 
 <h2>重拾ReText</h2>
 
-<p>試過了多種方法後，還是覺得原生的MarkDown編輯器靠譜。剛好最近SUSE13.1發佈，安裝過後感覺KDE的用戶體驗上比Ubuntu自己的Unity有過之而無不及。而且本來玩Linux就是爲了折騰，沒有安裝即用的MarkDown編輯器，自己配一個總可以吧。所以最後決定在SUSE上再次挑戰ReTest！</p>
+<p>試過了多種方法後，還是覺得原生的MarkDown編輯器靠譜。剛好最近SUSE13.1發佈，安裝過後感覺KDE的用戶體驗上比Ubuntu自己的Unity有過之而無不及。而且本來玩Linux就是爲了折騰，沒有安裝即用的MarkDown編輯器，自己配一個總可以吧。所以最後決定在SUSE上再次挑戰ReText！</p>
 
 <h3>安裝</h3>
 
