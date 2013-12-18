@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。  
-P.S.[YaST](http://zh.wikipedia.org/wiki/YaST)從圖形化系統維護的角度來看太好用了，感覺比Ubuntu的強。  
+P.S.[YaST](http://zh.wikipedia.org/wiki/YaST)YaST做得很優秀，没Ubuntu的花哨，非常實用。  
 ![yast](/images/2013-12-16/yast.png)
 用RVM安裝Ruby後，上圖的所有項目的子窗口都無法再彈出了。試着在命令行用root身份登陸運行`yast2 --qt`，這樣是運行是沒問題的。
 ![command-line](/images/2013-12-16/command-line.png)
