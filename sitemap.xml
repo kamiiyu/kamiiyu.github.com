@@ -2,70 +2,74 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/24/project-toukyu/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/24/project-jcb/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/24/project-reocar/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/25/project-hsw/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/25/project-self/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/28/the-abandoned-bible/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/01/29/mrw-admin/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/12/06/retext/</loc>
-        <lastmod>2013-12-18T09:34:11+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/2013/12/16/rvm-on-open-suse/</loc>
-        <lastmod>2013-12-18T11:06:33+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
-        <loc>http://kamiiyu.github.io/religions/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://kamiiyu.github.io/my-ruby-way/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <loc>http://kamiiyu.github.io/blog/2016/11/30/ruby3-typing/</loc>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/about/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://kamiiyu.github.io/robots.txt</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://kamiiyu.github.io/projects/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://kamiiyu.github.io/</loc>
-        <lastmod>2013-12-18T11:06:33+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/blog/archives/</loc>
-        <lastmod>2013-12-18T11:06:33+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:11+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kamiiyu.github.io/</loc>
+        <lastmod>2016-12-01T17:45:12+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kamiiyu.github.io/my-ruby-way/</loc>
+        <lastmod>2016-12-01T17:45:12+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kamiiyu.github.io/projects/</loc>
+        <lastmod>2016-12-01T17:45:12+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kamiiyu.github.io/religions/</loc>
+        <lastmod>2016-12-01T17:45:12+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kamiiyu.github.io/robots.txt</loc>
+        <lastmod>2016-12-01T17:45:12+08:00</lastmod>
     </url>
     <url>
         <loc>http://kamiiyu.github.io/tools/</loc>
-        <lastmod>2013-12-16T19:03:13+08:00</lastmod>
+        <lastmod>2016-12-01T17:45:12+08:00</lastmod>
     </url>
 </urlset>

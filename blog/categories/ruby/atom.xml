@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | 文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2013-12-18T11:07:22+08:00</updated>
+  <updated>2016-12-01T17:46:31+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -12,7 +12,7 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
+
   <entry>
     <title type="html"><![CDATA[Jack是不是管理員？]]></title>
     <link href="http://kamiiyu.github.io/blog/2013/01/29/mrw-admin/"/>
@@ -111,5 +111,5 @@
 <p>　　ruby的<em>can_do?</em>是不是很簡單易懂？特別方法尾部畫龍點睛的"?&ldquo;，比java的<em>is_xx()</em>簡直好看百倍！</p>
 ]]></content>
   </entry>
-  
+
 </feed>
