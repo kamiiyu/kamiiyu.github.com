@@ -9,10 +9,10 @@
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="Matz这个演讲我是在2016年的Rubykaigi的官方视频集里看到的。
+  <meta name="description" content="Matz在2016年的Rubykaigi里做了一个关于Ruby3 Typing的分享。
 首先简单介绍一下什么是RubyKaigi。
 Kaigi就是日语【会議】的罗马字母写法，顾名思义也就是在日本举行的RubyConf。
-RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス】（ &hellip;">
+RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -109,21 +109,16 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
   </header>
 
 
-<div class="entry-content"><p>Matz这个演讲我是在2016年的Rubykaigi的官方视频集里看到的。<br/>
+<div class="entry-content"><p>Matz在2016年的Rubykaigi里做了一个关于Ruby3 Typing的分享。<br/>
 首先简单介绍一下什么是<a href="https://ja.wikipedia.org/wiki/RubyKaigi">RubyKaigi</a>。<br/>
 Kaigi就是日语【会議】的罗马字母写法，顾名思义也就是在日本举行的RubyConf。<br/>
 RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス】（Japan Ruby Conference），由于容易与<a href="http://rubycentral.org/">Ruby Central</a>混淆，因此在2007年改名为【日本Ruby会議】，直到2011年停办。<br/>
 2013年大会重开，改名为【RubyKaigi】，并统一使用英语作为大会的官方名称。</p>
 
 <p>今年的<a href="http://rubykaigi.org/2016/">RubyKaigi2016</a>在9月8号到10号京都举行。由于近水流台，有不少像Matz这样的Ruby committer参与分享，所以大会含金量非常高。<br/>
-<a href="http://rubykaigi.org/2016/">官网</a>中以及发布了所有视频，希望以后有机会可以亲身去感受下。
-本次大会无疑Ruby3是最受瞩目的。</p>
+<a href="http://rubykaigi.org/2016/">官网</a>中以及发布了所有视频，希望以后有机会可以亲身去感受下。</p>
 
-<hr />
-
-<h2>Ruby3 Typing（Matz）</h2>
-
-<p>大会的首个Topic《Ruby3 Typing》</p>
+<p>大会的首个Topic是Matz的 <a href="http://rubykaigi.org/2016/presentations/yukihiro_matz.html">Ruby3 Typing</a>（<a href="https://www.youtube.com/watch?v=2Ag8l-wq5qk">油管直通车</a>）</p>
 
 <p><img src="/images/2016-11-30/02.ruby3_typing.png" alt="02.ruby3_typing" /></p>
 
@@ -131,15 +126,18 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 
 <p><img src="/images/2016-11-30/01.matz.png" alt="01.matz" /></p>
 
-<p>演讲的提示是<a href="http://rubykaigi.org/2016/presentations/yukihiro_matz.html">Ruby3 Typing</a>。<br/>
-我把这个演讲“翻译”成以下的文字，为了保持文字通顺，稍微加工了一下。</p>
+<p>官方没有提供在线版的PPT，我把这个日语演讲“翻译”成以下的文字，为了保持文字通顺，稍微加工了一下。</p>
 
-<p>在2010年以来的新语言很多都是静态类型语言（Static Typed Languages），例如TypeScript、Flow、Go、Swift等等。</p>
+<hr />
+
+<h2>Ruby3 Typing（Matz）</h2>
+
+<p>在2010年以来的新语言很多都是静态类型语言（Static Typed Languages），例如TypeScript、Flow、Go、Swift等等。<br/>
+与之相比，Ruby没有静态类型，又是上世纪90年代语言，所以有些人会说“Ruby is Dead”、“Rails is Dead”。</p>
 
 <p><img src="/images/2016-11-30/03.no_static_typing.png" alt="03.no_static_typing" /></p>
 
-<p>与之相比，Ruby没有静态类型，又是上世纪90年代语言，所以有些人会说“Ruby is Dead”、“Rails is Dead”。<br/>
-但技术有时候就像钟摆，有时候偏向一种技术，有时候又偏向另外一种技术，这是常有的事情。例如静态类型与动态类型“之争”。</p>
+<p>但技术有时候就像钟摆，有时候偏向一种技术，有时候又偏向另外一种技术，这是常有的事情。例如静态类型与动态类型“之争”。</p>
 
 <ul>
 <li><p>1970s到1980s左右，从Smalltalk、lisp摆到Java、C++</p></li>
@@ -187,7 +185,7 @@ sio.string # =&gt; retrieve string
 
 <p><img src="/images/2016-11-30/04.go_interface.png" alt="04.go_interface" /></p>
 
-<p>在上面的例子中，上面三行定义一个包含<code>Write</code>方法的interface <code>LogDst</code>，下面三行的log函数接受两个参数<code>LogDst</code>和字符串<code>mesg</code>。在这个函数里我们只需要<code>LogDst</code>有<code>Write</code>的行为（方法）就可以了，我们并不需要关心它的内部逻辑， 它可能是输出到standard IO、String，或者其他什么地方。<br/>
+<p>在上面的例子中，上面三行定义一个包含<code>Write</code>方法的interface <code>LogDst</code>，下面三行的log函数接受两个参数<code>LogDst</code>和字符串<code>mesg</code>。在这个函数里我们只需要<code>LogDst</code>有<code>Write</code>的行为（方法）就可以了， 它可能是输出到standard IO、String，或者其他什么地方，我们并不需要关心它的内部逻辑。<br/>
 Structural Subtyping和Duck typing同样保持很好的灵活性，当然我（Matz）还是更喜欢Ruby的Duck Typing :&ndash;)。</p>
 
 <p><img src="/images/2016-11-30/05.duck_typing_is_awesome.png" alt="05.duck_typing_is_awesome" /></p>
@@ -293,7 +291,8 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，</p>
 
 <p><img src="/images/2016-11-30/26.collect_from_test.png" alt="26.collect_from_test" /></p>
 
-<p>一般Libray或者Gem都会进行测试，那么我们可以在测试的同时，建立类型数据库。这样我们就可以在发布Gem的同时，以某种方式一起创建和发布与之对应的类型数据库。</p>
+<p>一般Libray或者Gem都会进行测试，那么我们可以在测试的同时，建立类型数据库。<br/>
+这样我们就可以在发布Gem的同时，以某种方式一起创建和发布与之对应的类型数据库。</p>
 
 <p><img src="/images/2016-11-30/27.build_type_database_from_gem.png" alt="27.build_type_database_from_gem" /></p>
 
@@ -302,12 +301,13 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，</p>
 
 <p><img src="/images/2016-11-30/28.still_mere_concept.png" alt="28.still_mere_concept" /></p>
 
-<p>所以让我们一起期待Ruby3吧！（图）</p>
+<p>所以让我们一起期待Ruby3吧！</p>
 
 <p><img src="/images/2016-11-30/29.part_of_ruby3.png" alt="29.part_of_ruby3" /></p>
 
-<p>最后，我们（Ruby committees）有一个很重要的信息传递给大家，我们是非常重视开发者的。<br/>
-<img src="/images/2016-11-30/30.we_care_about_you.png" alt="30.we_care_about_you" /></p>
+<p>最后，我们（Ruby committees）有一个很重要的信息传递给大家，我们是非常重视开发者的。</p>
+
+<p><img src="/images/2016-11-30/30.we_care_about_you.png" alt="30.we_care_about_you" /></p>
 
 <p>我们不会对Dynamic typing的“缺点“视而不见，或者叫开发者多做测试就了事，而是希望努力的改善Ruby，让开发者有更好的开发体验。</p>
 

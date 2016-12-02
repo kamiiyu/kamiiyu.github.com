@@ -8,19 +8,19 @@
   <title>文斯雜談凸^-^凸</title>
   <meta name="author" content="文斯">
 
-
-  <meta name="description" content="Matz这个演讲我是在2016年的Rubykaigi的官方视频集里看到的。
+  
+  <meta name="description" content="Matz在2016年的Rubykaigi里做了一个关于Ruby3 Typing的分享。
 首先简单介绍一下什么是RubyKaigi。
 Kaigi就是日语【会議】的罗马字母写法，顾名思义也就是在日本举行的RubyConf。
-RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス】（ &hellip;">
-
+RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+  
   <link rel="canonical" href="http://kamiiyu.github.io/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -32,7 +32,7 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-
+  
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-38035892-2']);
@@ -51,24 +51,24 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 <body   >
   <header role="banner"><hgroup>
   <h1><a href="/">文斯雜談凸^-^凸</a></h1>
-
+  
     <h2>何かの犠牲なしに何も得ることができない、</br>何かを得るためには同等の代価が必要になる。</br>         　　　　　　　　　　　　--「鋼の錬金術士」</h2>
-
+  
 </hgroup>
 
 </header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-
+  
 </ul>
-
+  
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:kamiiyu.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
-
+  
 <ul class="main-navigation">
   <li><a href="/blog/archives">Archive</a></li>
   <li><a href="/religions/">Religions</a></li>
@@ -82,17 +82,18 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
   <div id="main">
     <div id="content">
       <div class="blog-index">
-
-
-
+  
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2016/11/30/ruby3-typing/">非动态，也非静态，Ruby3 Typing 的第三条路</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -101,32 +102,26 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 
 
 
-
-
+  
 
 
 <time datetime="2016-11-30T15:55:35+08:00" pubdate data-updated="true">Nov 30<span>th</span>, 2016</time>
-
+        
       </p>
-
+    
   </header>
 
 
-  <div class="entry-content"><p>Matz这个演讲我是在2016年的Rubykaigi的官方视频集里看到的。<br/>
+  <div class="entry-content"><p>Matz在2016年的Rubykaigi里做了一个关于Ruby3 Typing的分享。<br/>
 首先简单介绍一下什么是<a href="https://ja.wikipedia.org/wiki/RubyKaigi">RubyKaigi</a>。<br/>
 Kaigi就是日语【会議】的罗马字母写法，顾名思义也就是在日本举行的RubyConf。<br/>
 RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス】（Japan Ruby Conference），由于容易与<a href="http://rubycentral.org/">Ruby Central</a>混淆，因此在2007年改名为【日本Ruby会議】，直到2011年停办。<br/>
 2013年大会重开，改名为【RubyKaigi】，并统一使用英语作为大会的官方名称。</p>
 
 <p>今年的<a href="http://rubykaigi.org/2016/">RubyKaigi2016</a>在9月8号到10号京都举行。由于近水流台，有不少像Matz这样的Ruby committer参与分享，所以大会含金量非常高。<br/>
-<a href="http://rubykaigi.org/2016/">官网</a>中以及发布了所有视频，希望以后有机会可以亲身去感受下。
-本次大会无疑Ruby3是最受瞩目的。</p>
+<a href="http://rubykaigi.org/2016/">官网</a>中以及发布了所有视频，希望以后有机会可以亲身去感受下。</p>
 
-<hr />
-
-<h2>Ruby3 Typing（Matz）</h2>
-
-<p>大会的首个Topic《Ruby3 Typing》</p>
+<p>大会的首个Topic是Matz的 <a href="http://rubykaigi.org/2016/presentations/yukihiro_matz.html">Ruby3 Typing</a>（<a href="https://www.youtube.com/watch?v=2Ag8l-wq5qk">油管直通车</a>）</p>
 
 <p><img src="/images/2016-11-30/02.ruby3_typing.png" alt="02.ruby3_typing" /></p>
 
@@ -134,15 +129,18 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 
 <p><img src="/images/2016-11-30/01.matz.png" alt="01.matz" /></p>
 
-<p>演讲的提示是<a href="http://rubykaigi.org/2016/presentations/yukihiro_matz.html">Ruby3 Typing</a>。<br/>
-我把这个演讲“翻译”成以下的文字，为了保持文字通顺，稍微加工了一下。</p>
+<p>官方没有提供在线版的PPT，我把这个日语演讲“翻译”成以下的文字，为了保持文字通顺，稍微加工了一下。</p>
 
-<p>在2010年以来的新语言很多都是静态类型语言（Static Typed Languages），例如TypeScript、Flow、Go、Swift等等。</p>
+<hr />
+
+<h2>Ruby3 Typing（Matz）</h2>
+
+<p>在2010年以来的新语言很多都是静态类型语言（Static Typed Languages），例如TypeScript、Flow、Go、Swift等等。<br/>
+与之相比，Ruby没有静态类型，又是上世纪90年代语言，所以有些人会说“Ruby is Dead”、“Rails is Dead”。</p>
 
 <p><img src="/images/2016-11-30/03.no_static_typing.png" alt="03.no_static_typing" /></p>
 
-<p>与之相比，Ruby没有静态类型，又是上世纪90年代语言，所以有些人会说“Ruby is Dead”、“Rails is Dead”。<br/>
-但技术有时候就像钟摆，有时候偏向一种技术，有时候又偏向另外一种技术，这是常有的事情。例如静态类型与动态类型“之争”。</p>
+<p>但技术有时候就像钟摆，有时候偏向一种技术，有时候又偏向另外一种技术，这是常有的事情。例如静态类型与动态类型“之争”。</p>
 
 <ul>
 <li><p>1970s到1980s左右，从Smalltalk、lisp摆到Java、C++</p></li>
@@ -160,7 +158,7 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 
 <p>Ruby版本的日志输出代码片段：</p>
 
-<pre><code>log(STDERR, "error!")
+<pre><code>log(STDERR, "error!")  
 </code></pre>
 
 <p>静态类型版本：</p>
@@ -190,7 +188,7 @@ sio.string # =&gt; retrieve string
 
 <p><img src="/images/2016-11-30/04.go_interface.png" alt="04.go_interface" /></p>
 
-<p>在上面的例子中，上面三行定义一个包含<code>Write</code>方法的interface <code>LogDst</code>，下面三行的log函数接受两个参数<code>LogDst</code>和字符串<code>mesg</code>。在这个函数里我们只需要<code>LogDst</code>有<code>Write</code>的行为（方法）就可以了，我们并不需要关心它的内部逻辑， 它可能是输出到standard IO、String，或者其他什么地方。<br/>
+<p>在上面的例子中，上面三行定义一个包含<code>Write</code>方法的interface <code>LogDst</code>，下面三行的log函数接受两个参数<code>LogDst</code>和字符串<code>mesg</code>。在这个函数里我们只需要<code>LogDst</code>有<code>Write</code>的行为（方法）就可以了， 它可能是输出到standard IO、String，或者其他什么地方，我们并不需要关心它的内部逻辑。<br/>
 Structural Subtyping和Duck typing同样保持很好的灵活性，当然我（Matz）还是更喜欢Ruby的Duck Typing :&ndash;)。</p>
 
 <p><img src="/images/2016-11-30/05.duck_typing_is_awesome.png" alt="05.duck_typing_is_awesome" /></p>
@@ -296,7 +294,8 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，</p>
 
 <p><img src="/images/2016-11-30/26.collect_from_test.png" alt="26.collect_from_test" /></p>
 
-<p>一般Libray或者Gem都会进行测试，那么我们可以在测试的同时，建立类型数据库。这样我们就可以在发布Gem的同时，以某种方式一起创建和发布与之对应的类型数据库。</p>
+<p>一般Libray或者Gem都会进行测试，那么我们可以在测试的同时，建立类型数据库。<br/>
+这样我们就可以在发布Gem的同时，以某种方式一起创建和发布与之对应的类型数据库。</p>
 
 <p><img src="/images/2016-11-30/27.build_type_database_from_gem.png" alt="27.build_type_database_from_gem" /></p>
 
@@ -305,12 +304,13 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，</p>
 
 <p><img src="/images/2016-11-30/28.still_mere_concept.png" alt="28.still_mere_concept" /></p>
 
-<p>所以让我们一起期待Ruby3吧！（图）</p>
+<p>所以让我们一起期待Ruby3吧！</p>
 
 <p><img src="/images/2016-11-30/29.part_of_ruby3.png" alt="29.part_of_ruby3" /></p>
 
-<p>最后，我们（Ruby committees）有一个很重要的信息传递给大家，我们是非常重视开发者的。<br/>
-<img src="/images/2016-11-30/30.we_care_about_you.png" alt="30.we_care_about_you" /></p>
+<p>最后，我们（Ruby committees）有一个很重要的信息传递给大家，我们是非常重视开发者的。</p>
+
+<p><img src="/images/2016-11-30/30.we_care_about_you.png" alt="30.we_care_about_you" /></p>
 
 <p>我们不会对Dynamic typing的“缺点“视而不见，或者叫开发者多做测试就了事，而是希望努力的改善Ruby，让开发者有更好的开发体验。</p>
 
@@ -339,21 +339,22 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，</p>
 
 <p><img src="/images/2016-11-30/37.happy_hacking.png" alt="37.happy_hacking" /></p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/12/16/rvm-on-open-suse/">OPEN SUSE下的RVM小坑</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -362,14 +363,13 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，</p>
 
 
 
-
-
+  
 
 
 <time datetime="2013-12-16T15:48:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -395,21 +395,22 @@ P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>做得很優秀，没Ubu
 
 <p>關於gettext可以參考<a href="http://zh.wikipedia.org/wiki/Gettext">維基</a>，fast_gettext可參考<a href="https://github.com/grosser/fast_gettext">這裏</a>。</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/12/06/retext/">ReText——Linux下的MarkDown利器</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -418,14 +419,13 @@ P.S.<a href="http://zh.wikipedia.org/wiki/YaST">YaST</a>做得很優秀，没Ubu
 
 
 
-
-
+  
 
 
 <time datetime="2013-12-06T14:43:00+08:00" pubdate data-updated="true">Dec 6<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -525,21 +525,22 @@ useWebKit=true
 <p>OPEN SUSE默認安裝的ReText還是有點不盡人意的地方。<br/>
 例如，滾動左邊的工作區的時候，右邊的Live View並不會相應的自動滾動。ReText的開發Tickets也有人彙報過這個<a href="http://sourceforge.net/p/retext/tickets/52/">問題</a>，但似乎還是沒有很好的解決。可能是和環境有關係，因爲最新版本的ReText其實已經建議運行在Python3的環境下，但OPEN SUSE默認還是Python2。有機會在Ubuntu在驗證一下這個問題。</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -548,14 +549,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-29T15:29:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -654,21 +654,22 @@ useWebKit=true
 
 <p>　　ruby的<em>can_do?</em>是不是很簡單易懂？特別方法尾部畫龍點睛的&#8221;?&ldquo;，比java的<em>is_xx()</em>簡直好看百倍！</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -677,14 +678,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-28T10:35:00+08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -706,21 +706,22 @@ useWebKit=true
 　　後來，我才知道原來TK那天是看錯地址才找到我們宿舍，我又一次被神的力量所折服:&ndash;)<br/>
 　　但可能由於自己性格的問題，太執著、太喜歡問為什麼了，直到現在，我還是對很多事情有保留，不過有一點我敢確定的是，讓以前教科書上學的東西見鬼去吧⋯⋯</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/25/project-self/">文斯雜談 醞釀已久</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -729,14 +730,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-25T15:21:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -750,21 +750,22 @@ useWebKit=true
 　　總之，這裡是流淌着技術血液的大雜燴:&ndash;)
 　　</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/25/project-hsw/">華南商業網 臨危受命</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -773,14 +774,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-25T11:22:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -792,21 +792,22 @@ useWebKit=true
 　　9月份接觸，11月正式加入，終於趕在老板挑的1月的吉時上線。從我的角度來看問題還是一大堆，服務器硬件老化，大部份元件已經停產；網站結構過於混亂，需要進一步的整合、優化等等。雖然還有這樣那樣的問題，但是折騰了一年多的改版終於完成，公司上下的一塊心頭大石終於放了下來。<br/>
 　　臨危受命，這是我做過的技術上最輕鬆的項目，php、windows雖沒有太多的實戰經驗，但一理通百理明，很快的就搞通了；但是項目的壓力卻是最大的，老板曾經說過，如果這次還不行就不改版了，整個項目的成敗都壓在我一個人身上。最終我還是扛過來了，不過也慨嘆這樣的爛尾項目為什麼在中國似乎是常態呢⋯</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/24/project-reocar/">瑞卡租車 如願以償</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -815,14 +816,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-24T16:47:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -848,21 +848,22 @@ useWebKit=true
 　　如願以償，不僅是技術上的，還是更多是來自努力後被肯定的那份滿足感。加入公司後一個月轉正，三個月後掌管業務系統、半年後時技術部，這一切都都多虧了有K對我的賞識。<br/>
 　　開始考慮是否離開，是在6、7月間，當時整個技術部已經趨於穩定，已經從之前的地震恢復過來，而由於公司策略慢慢改為線下，對系統的依賴慢慢減少。人員的變動加上公司策略的改變，那種不眠不休的那種工作激情已經一去不復返，可以選擇留下慢慢混日子，但我還是希望能找一個能發揮自己潛能的新舞台，嘗試更多新事物。</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/24/project-jcb/">JCBカード 乘风破浪</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -871,14 +872,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-24T14:26:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -893,21 +893,22 @@ useWebKit=true
 　　商業系統開發發展必然朝越來越模式化的發展，這樣企業承擔的成本也許高點，但大大降低了失敗的機率，因為整個項目的成敗靠的整個團隊而不是個人。<br/>
 　　兩個項目，五年的日本開發經驗，讓我獲益良多，但是我還是決定回廣州⋯⋯</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
-
+  
+  
     <article>
-
+      
   <header>
-
+    
       <h1 class="entry-title"><a href="/blog/2013/01/24/project-toukyu/">東急リバブル 牛刀初試</a></h1>
-
-
+    
+    
       <p class="meta">
+        
 
 
 
@@ -916,14 +917,13 @@ useWebKit=true
 
 
 
-
-
+  
 
 
 <time datetime="2013-01-24T10:21:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-
+        
       </p>
-
+    
   </header>
 
 
@@ -940,44 +940,44 @@ useWebKit=true
 　　日本人開會，中國人開發，韓國人測試。這樣大約又折騰了半年，慢慢的，契約團隊的中國開發人員慢慢撤走了，我們的韓國測試團也退場了，項目終於上線進入保守階段，最後我也退出了項目。<br/>
 　　牛刀初試，一絲不苟的工作態度是這個團隊教會我最寶貴的東西。</p>
 </div>
-
-
+  
+  
 
 
     </article>
-
+  
   <div class="pagination">
-
+    
     <a href="/blog/archives">Blog Archives</a>
-
+    
   </div>
 </div>
 <aside class="sidebar">
-
+  
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
-
+    
       <li class="post">
         <a href="/blog/2016/11/30/ruby3-typing/">非动态，也非静态，Ruby3 Typing 的第三条路</a>
       </li>
-
+    
       <li class="post">
         <a href="/blog/2013/12/16/rvm-on-open-suse/">OPEN SUSE下的RVM小坑</a>
       </li>
-
+    
       <li class="post">
         <a href="/blog/2013/12/06/retext/">ReText——Linux下的MarkDown利器</a>
       </li>
-
+    
       <li class="post">
         <a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a>
       </li>
-
+    
       <li class="post">
         <a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a>
       </li>
-
+    
   </ul>
 </section>
 
@@ -986,9 +986,9 @@ useWebKit=true
   <ul id="gh_repos">
     <li class="loading">Status updating&#8230;</li>
   </ul>
-
+  
   <a href="https://github.com/kamiiyu">@kamiiyu</a> on GitHub
-
+  
   <script type="text/javascript">
     $.domReady(function(){
         if (!window.jXHR){
@@ -1023,7 +1023,7 @@ useWebKit=true
 
 
 
-
+  
 </aside>
 
     </div>
@@ -1034,7 +1034,7 @@ useWebKit=true
 </p>
 
 </footer>
-
+  
 
 
 
