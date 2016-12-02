@@ -6,18 +6,16 @@ comments: true
 categories:
 ---
 
-Matz这个演讲我是在2016年的Rubykaigi的官方视频集里看到的。  
+Matz在2016年的Rubykaigi里做了一个关于Ruby3 Typing的分享。  
 首先简单介绍一下什么是[RubyKaigi](https://ja.wikipedia.org/wiki/RubyKaigi)。  
 Kaigi就是日语【会議】的罗马字母写法，顾名思义也就是在日本举行的RubyConf。  
 RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス】（Japan Ruby Conference），由于容易与[Ruby Central](http://rubycentral.org/)混淆，因此在2007年改名为【日本Ruby会議】，直到2011年停办。  
 2013年大会重开，改名为【RubyKaigi】，并统一使用英语作为大会的官方名称。  
 
 今年的[RubyKaigi2016](http://rubykaigi.org/2016/)在9月8号到10号京都举行。由于近水流台，有不少像Matz这样的Ruby committer参与分享，所以大会含金量非常高。  
-[官网](http://rubykaigi.org/2016/)中以及发布了所有视频，希望以后有机会可以亲身去感受下。
-本次大会无疑Ruby3是最受瞩目的。  
-****
-## Ruby3 Typing（Matz）
-大会的首个Topic《Ruby3 Typing》  
+[官网](http://rubykaigi.org/2016/)中以及发布了所有视频，希望以后有机会可以亲身去感受下。  
+
+大会的首个Topic是Matz的 [Ruby3 Typing](http://rubykaigi.org/2016/presentations/yukihiro_matz.html)（[油管直通车](https://www.youtube.com/watch?v=2Ag8l-wq5qk)）  
 
 ![02.ruby3_typing](/images/2016-11-30/02.ruby3_typing.png)
 
@@ -25,14 +23,17 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 
 ![01.matz](/images/2016-11-30/01.matz.png)
 
-演讲的提示是[Ruby3 Typing](http://rubykaigi.org/2016/presentations/yukihiro_matz.html)。  
-我把这个演讲“翻译”成以下的文字，为了保持文字通顺，稍微加工了一下。   
+官方没有提供在线版的PPT，我把这个日语演讲“翻译”成以下的文字，为了保持文字通顺，稍微加工了一下。   
+
+****
+
+## Ruby3 Typing（Matz）  
 
 在2010年以来的新语言很多都是静态类型语言（Static Typed Languages），例如TypeScript、Flow、Go、Swift等等。  
+与之相比，Ruby没有静态类型，又是上世纪90年代语言，所以有些人会说“Ruby is Dead”、“Rails is Dead”。  
 
 ![03.no_static_typing](/images/2016-11-30/03.no_static_typing.png)  
 
-与之相比，Ruby没有静态类型，又是上世纪90年代语言，所以有些人会说“Ruby is Dead”、“Rails is Dead”。  
 但技术有时候就像钟摆，有时候偏向一种技术，有时候又偏向另外一种技术，这是常有的事情。例如静态类型与动态类型“之争”。  
 
 * 1970s到1980s左右，从Smalltalk、lisp摆到Java、C++  
@@ -40,6 +41,7 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
 * 接下来又从Java摆到Ruby、JavaScript  
 
 * 到最近又从Ruby、JavaScript摆到Swift、Go  
+
 
 那么未来Swift、Go又会摆到哪里去呢？未来Ruby3的类型又会有什么改变呢？  
 
@@ -77,7 +79,7 @@ Duck typing使我们在开发的时候不需花时间研究各个Class间的关�
 
 ![04.go_interface](/images/2016-11-30/04.go_interface.png)  
 
-在上面的例子中，上面三行定义一个包含`Write`方法的interface `LogDst`，下面三行的log函数接受两个参数`LogDst`和字符串`mesg`。在这个函数里我们只需要`LogDst`有`Write`的行为（方法）就可以了，我们并不需要关心它的内部逻辑， 它可能是输出到standard IO、String，或者其他什么地方。  
+在上面的例子中，上面三行定义一个包含`Write`方法的interface `LogDst`，下面三行的log函数接受两个参数`LogDst`和字符串`mesg`。在这个函数里我们只需要`LogDst`有`Write`的行为（方法）就可以了， 它可能是输出到standard IO、String，或者其他什么地方，我们并不需要关心它的内部逻辑。  
 Structural Subtyping和Duck typing同样保持很好的灵活性，当然我（Matz）还是更喜欢Ruby的Duck Typing :-)。  
 
 ![05.duck_typing_is_awesome](/images/2016-11-30/05.duck_typing_is_awesome.png)    
@@ -180,7 +182,8 @@ interface(Type)的名字(取名字对有些人来说是件麻烦事)，
 
 ![26.collect_from_test](/images/2016-11-30/26.collect_from_test.png)   
 
-一般Libray或者Gem都会进行测试，那么我们可以在测试的同时，建立类型数据库。这样我们就可以在发布Gem的同时，以某种方式一起创建和发布与之对应的类型数据库。    
+一般Libray或者Gem都会进行测试，那么我们可以在测试的同时，建立类型数据库。  
+这样我们就可以在发布Gem的同时，以某种方式一起创建和发布与之对应的类型数据库。    
 
 ![27.build_type_database_from_gem](/images/2016-11-30/27.build_type_database_from_gem.png)     
 
@@ -189,11 +192,12 @@ IDE也可以利用这些Type Database的信息，让我们可以构造更加有�
 
 ![28.still_mere_concept](/images/2016-11-30/28.still_mere_concept.png)     
 
-所以让我们一起期待Ruby3吧！（图）  
+所以让我们一起期待Ruby3吧！  
 
 ![29.part_of_ruby3](/images/2016-11-30/29.part_of_ruby3.png)     
 
 最后，我们（Ruby committees）有一个很重要的信息传递给大家，我们是非常重视开发者的。  
+
 ![30.we_care_about_you](/images/2016-11-30/30.we_care_about_you.png)     
 
 我们不会对Dynamic typing的“缺点“视而不见，或者叫开发者多做测试就了事，而是希望努力的改善Ruby，让开发者有更好的开发体验。  
