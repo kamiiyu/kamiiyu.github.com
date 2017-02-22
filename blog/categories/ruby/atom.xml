@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | 文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2017-02-22T18:00:26+08:00</updated>
+  <updated>2017-02-22T18:03:03+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -153,7 +153,8 @@ end
 </ul>
 
 
-<p>假设现在我们需要获取每个post的最新的comment。</p>
+<p>假设现在我们需要获取每个post的最新的comment。<br/>
+但这不是我们想要的。</p>
 
 <p>```</p>
 
@@ -163,8 +164,7 @@ end
   Comment Load (0.1ms)  SELECT  &ldquo;comments&rdquo;.<em> FROM &ldquo;comments&rdquo; WHERE &ldquo;comments&rdquo;.&ldquo;post_id&rdquo; = ? ORDER BY &ldquo;comments&rdquo;.&ldquo;id&rdquo; DESC LIMIT ?  [[&ldquo;post_id&rdquo;, 2], [&ldquo;LIMIT&rdquo;, 1]]
   Comment Load (0.1ms)  SELECT  &ldquo;comments&rdquo;.</em> FROM &ldquo;comments&rdquo; WHERE &ldquo;comments&rdquo;.&ldquo;post_id&rdquo; = ? ORDER BY &ldquo;comments&rdquo;.&ldquo;id&rdquo; DESC LIMIT ?  [[&ldquo;post_id&rdquo;, 3], [&ldquo;LIMIT&rdquo;, 1]]
   Comment Load (0.1ms)  SELECT  &ldquo;comments&rdquo;.* FROM &ldquo;comments&rdquo; WHERE &ldquo;comments&rdquo;.&ldquo;post_id&rdquo; = ? ORDER BY &ldquo;comments&rdquo;.&ldquo;id&rdquo; DESC LIMIT ?  [[&ldquo;post_id&rdquo;, 4], [&ldquo;LIMIT&rdquo;, 1]]
-```
-这不是我们想要的。</p></blockquote>
+```</p></blockquote>
 
 <p>添加选项<code>full_load: true</code>后,当调用上述方法时，Goldiloader会强制自动加载所需的关系。</p>
 

@@ -267,7 +267,8 @@ ActiveRecord提供了以下三个方法预加载。</p>
 </ul>
 
 
-<p>假设现在我们需要获取每个post的最新的comment。</p>
+<p>假设现在我们需要获取每个post的最新的comment。<br/>
+但这不是我们想要的。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -282,8 +283,6 @@ ActiveRecord提供了以下三个方法预加载。</p>
 </span><span class='line'>  Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 3], ["LIMIT", 1]]
 </span><span class='line'>  Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 4], ["LIMIT", 1]]</span></code></pre></td></tr></table></div></figure>
 
-
-<p>这不是我们想要的。</p>
 
 <p>添加选项<code>full_load: true</code>后,当调用上述方法时，Goldiloader会强制自动加载所需的关系。</p>
 
