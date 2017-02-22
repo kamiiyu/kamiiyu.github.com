@@ -4,7 +4,7 @@
   <title><![CDATA[文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2017-02-22T16:25:06+08:00</updated>
+  <updated>2017-02-22T17:55:34+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -120,8 +120,7 @@ ActiveRecord提供了以下三个方法预加载。</p>
 
 
 <p>第二，不符合DRY。<br/>
-既然我们都不喜欢N + 1，那就应该从源头上杜绝，而不是每次查询时都要主动<code>includes</code>一次。<br/>
-虽然我们也可以用<code>scope</code>把他藏在角落里，但总还是有点小疙瘩。</p>
+既然我们都不喜欢N + 1，那就应该从源头上杜绝，而不是每次查询时都要主动<code>includes</code>一次。</p>
 
 <h4>Goldiloader</h4>
 
