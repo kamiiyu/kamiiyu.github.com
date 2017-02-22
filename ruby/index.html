@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>華南商業網 臨危受命 - 文斯雜談凸^-^凸</title>
+  <title>my ruby way - 文斯雜談凸^-^凸</title>
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="　　2011年9月，朋友找到了我，朋友的老東家做的網站－－華南商業網的網站改版一年多了沒弄好，問我有沒有時間幫忙看看。
-　　由於這家公司離家也近，剛開始大概一星期抽空前一次，做做技術指導；離開瑞卡後就以兼職形式加入這個項目。
-　　這是一個關於連鎖市場、專業市場、地產市場等的商業門戶網站。 &hellip;">
+  <meta name="description" content="My Ruby Way Jan 29th, 2013 在這裡我希望分享一些自己的ruby經驗、心得。 Jack是不是管理員？ Jan 29th, 2013 Tweet Recent Posts 浅谈ActiveRecord的N + 1查询问题 非动态，也非静态，Ruby3 Typing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kamiiyu.github.io/blog/2013/01/25/project-hsw/">
+  <link rel="canonical" href="http://kamiiyu.github.io/ruby/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -81,15 +79,38 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">華南商業網 臨危受命</h1>
-    
-    
+    <h1 class="entry-title">My Ruby Way</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-29T15:20:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time></p>
+  </header>
+  
+  <pre><code>在這裡我希望分享一些自己的ruby經驗、心得。
+</code></pre>
+
+<ul>
+<li><a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a></li>
+</ul>
+
+
+  
+    <footer>
       <p class="meta">
         
+        
 
 
 
@@ -101,51 +122,13 @@
   
 
 
-<time datetime="2013-01-25T11:22:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
+<time datetime="2013-01-29T15:20:00+08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2013</time>
         
       </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>　　2011年9月，朋友找到了我，朋友的老東家做的網站－－華南商業網的網站改版一年多了沒弄好，問我有沒有時間幫忙看看。<br/>
-　　由於這家公司離家也近，剛開始大概一星期抽空前一次，做做技術指導；離開瑞卡後就以兼職形式加入這個項目。<br/>
-　　這是一個關於連鎖市場、專業市場、地產市場等的商業門戶網站。2011年底，由於業務需要，希望做一次改版。網站早在2003年就開始運營，但一直沒做過技術更新，用的是現在已經幾乎沒人用的asp，網站只有一個常規的維護人員，並沒有開發人員。找了家外包公司負責網站的改版，各種原因拖了大半年也沒完成，最後扔下一堆半成品的代碼就拍拍屁股走人了。<br/>
-　　新版的網站已經改為用php，數據庫也是我熟悉的mysql，但是服務器竟然還是用windows2003，不過也沒辦法，舊網站是asp＋sqlserver，肯定一套都是m＄的東西。<br/>
-　　百廢待興，排版交給原來的維護人員負責，我專注于新版網站基礎結構做調整。半成品代碼可謂是烏煙瘴氣，連最基本的字符編碼都弄的亂七八糟，各種亂碼橫飛。不少功能還沒實現或者有bug，因此我在調整結構的同時還需要把完善功能。代碼半天就看完，php現學現做，不過相比ruby的開發效率，php落後100年-_&ndash;#。接這是服務器的調整優化，為了保證穩定性所以選擇iis運行php，另外由於需要保留舊網站的資源以及部分新功能是我用ruby做的，所以選擇了nginx做反向代理，一個小小的網站用到三種技術兩個數據庫實現，的確夠折騰的。<br/>
-　　9月份接觸，11月正式加入，終於趕在老板挑的1月的吉時上線。從我的角度來看問題還是一大堆，服務器硬件老化，大部份元件已經停產；網站結構過於混亂，需要進一步的整合、優化等等。雖然還有這樣那樣的問題，但是折騰了一年多的改版終於完成，公司上下的一塊心頭大石終於放了下來。<br/>
-　　臨危受命，這是我做過的技術上最輕鬆的項目，php、windows雖沒有太多的實戰經驗，但一理通百理明，很快的就搞通了；但是項目的壓力卻是最大的，老板曾經說過，如果這次還不行就不改版了，整個項目的成敗都壓在我一個人身上。最終我還是扛過來了，不過也慨嘆這樣的爛尾項目為什麼在中國似乎是常態呢⋯</p>
-</div>
-
-
-  <footer>
-    <p class="meta">
       
+        <div class="sharing">
   
-
-<span class="byline author vcard">Posted by <span class="fn">文斯</span></span>
-
-      
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-25T11:22:00+08:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
-      
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kamiiyu.github.io/blog/2013/01/25/project-hsw/" data-via="spicekamiiyu@gmail.com" data-counturl="http://kamiiyu.github.io/blog/2013/01/25/project-hsw/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://kamiiyu.github.io/ruby/index.html" data-via="spicekamiiyu@gmail.com" data-counturl="http://kamiiyu.github.io/ruby/index.html" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -153,16 +136,9 @@
   
 </div>
 
-    
-    <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/24/project-reocar/" title="Previous Post: 瑞卡租車 如願以償">&laquo; 瑞卡租車 如願以償</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2013/01/25/project-self/" title="Next Post: 文斯雜談 醞釀已久">文斯雜談 醞釀已久 &raquo;</a>
-      
-    </p>
-  </footer>
+    </footer>
+  
 </article>
 
 </div>

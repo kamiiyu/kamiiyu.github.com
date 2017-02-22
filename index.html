@@ -9,10 +9,15 @@
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="Matz在2016年的Rubykaigi里做了一个关于Ruby3 Typing的分享。
-首先简单介绍一下什么是RubyKaigi。
-Kaigi就是日语【会議】的罗马字母写法，顾名思义也就是在日本举行的RubyConf。
-RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレンス &hellip;">
+  <meta name="description" content="ORM框架的性能小坑 在使用ActiveRecord这样的ORM工具时，常会嵌套遍历model。
+例如，有两个model，Post、Comment，关系是一对多。 1
+2
+3
+4
+5
+6
+7
+class Post &lt; ApplicationRecord has_many :comments &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +88,307 @@ RubyKaigi在2006年首次举行时的名字就是【日本Rubyカンファレン
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/02/21/n-plus-1-queries-of-active-record/">浅谈ActiveRecord的N + 1查询问题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-02-21T11:37:27+08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>ORM框架的性能小坑</h2>
+
+<p>在使用ActiveRecord这样的ORM工具时，常会嵌套遍历model。<br/>
+例如，有两个model，Post、Comment，关系是一对多。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Post &lt; ApplicationRecord
+</span><span class='line'>  has_many :comments
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>class Comment &lt; ApplicationRecord
+</span><span class='line'>  belongs_to :post
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 总共有4个post。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.count
+</span><span class='line'>(0.1ms)  SELECT COUNT(*) FROM "posts"
+</span><span class='line'>=&gt; 4</span></code></pre></td></tr></table></div></figure>
+
+
+<p>获取每个post的所有comment，我们可以：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.all.map{|post| post.comments}
+</span><span class='line'>  Post Load (0.3ms)  SELECT "posts".* FROM "posts"
+</span><span class='line'>  Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 1]]
+</span><span class='line'>  Comment Load (0.4ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+</span><span class='line'>  Comment Load (0.6ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+</span><span class='line'>  Comment Load (0.6ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以看到为了得到4条数据，我们执行了5（4 + 1）次的查询，这就是所谓N + 1查询问题。</p>
+
+<h2>发现问题</h2>
+
+<p>除了凭经验外，有一些gem也可以帮助我们提早发现N + 1查询问题。<br/>
+例如收费的<a href="https://newrelic.com/">New Relic</a>，免费的<a href="https://github.com/flyerhzm/bullet">Bullet</a>。</p>
+
+<h2>解决问题</h2>
+
+<h3>预加载</h3>
+
+<p>简单来说，就是提前加载model关系，让ActiveRecord预先加载所需要的数据。<br/>
+ActiveRecord提供了以下三个方法预加载。</p>
+
+<ul>
+<li><code>includes</code></li>
+<li><code>preload</code></li>
+<li><code>eager_load</code></li>
+</ul>
+
+
+<p>他们的区别可以参考<a href="http://blog.bigbinary.com/2013/07/01/preload-vs-eager-load-vs-joins-vs-includes.html">这里</a>或<a href="https://ruby-china.org/topics/17866">这里</a>。<br/>
+以最常用的<code>includes</code>方法为例。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.includes(:comments).map{|post| post.comments}
+</span><span class='line'>  Post Load (0.2ms)  SELECT "posts".* FROM "posts"
+</span><span class='line'>  Comment Load (0.5ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" IN (1, 2, 3, 4)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>得到的结果一样，但执行的查询只有两次。</p>
+
+<h3>傻瓜式预加载(Goldiloader)</h3>
+
+<h4>传统预加载的“问题”</h4>
+
+<p><code>includes</code>方法的确很惊艳，但……</p>
+
+<p>第一，代码不够优雅。<br/>
+例如，假设我们现在想找的是id在1到3之间的post的comment。<br/>
+一般的我们的逻辑是，查找id在1到3之间的post，获取各post的comment然后合并。<br/>
+而预加载后的逻辑是，查找id在1到3之间的post，<font color='red'><strong>关联comment，再</strong></font>获取各post的comment然后合并。<br/>
+总觉得有点冗余。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.where(id: 1..3).includes(:comments).map{|post| post.comments}
+</span><span class='line'>  Post Load (0.5ms)  SELECT "posts".* FROM "posts" WHERE ("posts"."id" BETWEEN ? AND ?)  [["id", 1], ["id", 3]]
+</span><span class='line'>  Comment Load (0.5ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" IN (1, 2, 3)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>第二，不符合DRY。<br/>
+既然我们都不喜欢N + 1，那就应该从源头上杜绝，而不是每次查询时都要主动<code>includes</code>一次。<br/>
+虽然我们也可以用<code>scope</code>把他藏在角落里，但总还是有点小疙瘩。</p>
+
+<h4>Goldiloader</h4>
+
+<p>懒癌程序员的救星<a href="https://github.com/salsify/goldiloader">Goldiloader</a>——几乎完美的解决了以上两个问题。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'goldiloader'</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>bundle install</code>以后，就可以用最直接（傻瓜）的方式点点点……</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.where(id: 1..3).map{|post| post.comments}
+</span><span class='line'>  Post Load (0.2ms)  SELECT "posts".* FROM "posts" WHERE ("posts"."id" BETWEEN ? AND ?)  [["id", 1], ["id", 3]]
+</span><span class='line'>  Comment Load (0.3ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" IN (1, 2, 3)</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>auto_include</h5>
+
+<p>Goldiloader默认自动加载所有关联数据，用<code>auto_include: false</code>可以方便地关闭自动加载。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Post &lt; ApplicationRecord
+</span><span class='line'>  has_many :comments, auto_include: false
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>fully_load</h5>
+
+<p>以下的方法比较特殊，如果关系已经加载了，则会直接返回已缓存在内存中的值，如果没被加载，则会通过SQL查询。</p>
+
+<ul>
+<li>first</li>
+<li>second</li>
+<li>third</li>
+<li>fourth</li>
+<li>fifth</li>
+<li>forty_two</li>
+<li>last</li>
+<li>size</li>
+<li>ids_reader</li>
+<li>empty?</li>
+<li>exists?</li>
+</ul>
+
+
+<p>假设现在我们需要获取每个post的最新的comment。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.all.sum{|post| [post.id, post.comments.last&.content]}
+</span><span class='line'>  Post Load (0.1ms)  SELECT "posts".* FROM "posts"
+</span><span class='line'>  Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 1], ["LIMIT", 1]]
+</span><span class='line'>  Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 2], ["LIMIT", 1]]
+</span><span class='line'>  Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 3], ["LIMIT", 1]]
+</span><span class='line'>  Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 4], ["LIMIT", 1]]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这不是我们想要的。</p>
+
+<p>添加选项<code>full_load: true</code>后,当调用上述方法时，Goldiloader会强制自动加载所需的关系。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Post &lt; ApplicationRecord
+</span><span class='line'>  has_many :comments, fully_load: true
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这才是我们想要的。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.all.sum{|post| [post.id, post.comments.last&.content]}
+</span><span class='line'>  Post Load (0.3ms)  SELECT "posts".* FROM "posts"
+</span><span class='line'>  Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" IN (1, 2, 3, 4)</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Goldiloader也不是万能的</h4>
+
+<h5>has_one使用SQL limit时的隐患</h5>
+
+<p>Goldiloader是ActiveRecord的衍生工具，所以ActiveRecord预加载的副作用也一并继承了。<br/>
+现在我们自定义一个<code>has_one</code>关系，用以获取最新的一条comment。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Post &lt; ApplicationRecord
+</span><span class='line'>  has_many :comments, fully_load: true
+</span><span class='line'>  has_one :latest_comment, -&gt; { order(created_at: :desc) }, class_name: 'Comment'
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>遍历post获取最新的comment。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; Post.all.map{|post| post.latest_comment}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>不使用Goldiloader或者预加载时，每条SQL自动回加上<code>limit 1</code>。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Post Load (0.3ms)  SELECT "posts".* FROM "posts"
+</span><span class='line'>Comment Load (0.2ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?  [["post_id", 1], ["LIMIT", 1]]
+</span><span class='line'>Comment Load (0.2ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?  [["post_id", 2], ["LIMIT", 1]]
+</span><span class='line'>Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?  [["post_id", 3], ["LIMIT", 1]]
+</span><span class='line'>Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?  [["post_id", 4], ["LIMIT", 1]]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>使用Goldiloader或者预加载时，世界变清净了，但同时会有性能隐患，因为post的数据可能非常大量。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  Post Load (0.5ms)  SELECT "posts".* FROM "posts"
+</span><span class='line'>  Comment Load (0.2ms)  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" IN (1, 2, 3, 4) ORDER BY "comments"."created_at" DESC</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>其他限制</h5>
+
+<p>遇到以下的关系，Goldiloader会自动关闭自动预加载。</p>
+
+<ul>
+<li>limit</li>
+<li>offset</li>
+<li>finder_sql</li>
+<li>group (due to a Rails bug)</li>
+<li>from (due to a Rails bug)</li>
+<li>joins (only Rails 4.0/4.1 &ndash; due to a Rails bug)</li>
+<li>uniq (only Rails 3.2 &ndash; due to a Rails bug)</li>
+</ul>
+
+
+<h2>本文结束之前</h2>
+
+<p>N + 1查询问题是一个容易被忽略的问题，<code>includes</code>已经够用，Goldiloader更是锦上添花，对新手足够友好。<br/>
+不过对于我这种被Rails“坑”习惯的斯德哥尔摩症候群患者来说，没有<code>includes</code>反而没安全感了>_&lt;|||</p>
+
+<h2>参考文档</h2>
+
+<ul>
+<li><a href="http://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations">Eager Loading Associations</a></li>
+<li><a href="https://github.com/salsify/goldiloader">Goldiloader</a></li>
+<li><a href="http://www.salsify.com/blog/engineering/automatic-eager-loading-rails">AUTOMATIC EAGER LOADING IN RAILS</a></li>
+<li><a href="https://github.com/kamiiyu/n_plus_1_demo">本文例子</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -899,54 +1205,9 @@ useWebKit=true
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/24/project-toukyu/">東急リバブル 牛刀初試</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-24T10:21:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　2007年，五月從公司組織的富士山旅遊回來後，終於迎來了我在日本的第一個項目。地點在横浜，從我當時住的東京都江東区去需要有一個多小時的電車，這意味著我每天需要七點十五分就要出門。現在回想起來，的確有點遠，但當時初生牛犢，沒多想就接下了公司的這個任務。<br/>
-　　項目的老大是一個愛吃糖的日本老頭，每次邊吃著糖邊和坐在旁邊的leader聊著項目的事情，幾乎我們面前正經吃過飯。leader是一個很友善的日本人，經常“呵呵”大笑，而且和我也有共同語言&mdash;<strong><a href="http://baike.baidu.com/view/5931.htm" title="日本國民機器人動畫">ガンダム</a></strong>。其他成員還有四個日本人，八個中國人，總共十四人的團隊。<br/>
-　　項目是日立製作所的一個不動產的管理系統，客戶是東急リバブル，我們十四個人負責的是物件模塊，負責待售、待租房屋信息的管理。<br/>
-　　我是從基本設計階段加入的，第一個任務就是看圖說故事，參照設計原型，寫出設計文檔，讓開發人員知道這些頁面是做什麼的，互相有什麼聯繫。本以為直接寫代碼的活，沒想到是從設計開始！？讓非科班出身的日語一級的我有點措手不及，來日本快半年了，第一次有挫折感，＞＜。不過還好有朝鮮族的同事，他們的日語都頂呱呱，幫了我不少，而且後來我也發現竅門，設計文檔其實挺死板的，老大們的要求就是言簡意賅，把事情說清楚就好，也不需要你寫得多漂亮，所以參照已經寫好的文檔，修修改改也基本完成了七、八成，剩下的自己再發揮一下。總體來說，設計這部分當時我的確沒做得太好，也就是勉強及格，主要是做得太慢。一個多月後就進入了開發階段，我的show time即將開始了。<br/>
-　　show time誇張了點，但進入開發階段確實順手多了，我在團隊裡面的作用開始發揮出來了。設計的時候，是我把未完成的部分交給其他同事完成，而開發的時候卻恰恰相反，是其他同事未完成的交給我，有時候還需要幫他們debug。原因很簡單，因為團隊十四個人裡面，有java經驗的人包括我只有三個中國人，日本成員和其他中國成員都沒接觸java的，都是現學現做，而這個項目主要用java實現，少部分批處理是用COBOL實現。<br/>
-　　有好的設計，開發就沒太多難度了，而且技術使用的是日立自己的解決方案，一個在struts1基礎上二次開發的框架，為這個項目又擴展了部分功能，因此在技術上沒遇到多少困難。就是有個自動解壓縮的功能稍微查了一下java文檔，其他基本就是逼著眼睛就把代碼寫好了。<br/>
-　　基本設計、開發、單元測試，在這期間不斷像日立總部反饋再修改，n個來回後，到九月分被告知第一階段已經完成，剩下的工作需要到東京大森的總部和其他模塊匯合，一起開發。終於可以結束每天幾乎三個小時的電車生涯了:&ndash;) <br/>
-　　來到大森後完全是另一番景象，第一次感到日本的工作壓力。<br/>
-　　我們這個項目其實總共分四大模塊，加上統籌的日立總部團隊，總共分成五個團隊。出了我們物件團隊外，還有負責顧客管理的顧客團隊，大概7、8人左右；負責契約管理的契約團隊，因為是整個項目中最重要的模塊，光設計就至少十幾人，開發是外包的中國的一家公司，開發人員都是從中國直接請到日本集中開發，整個團隊估計至少應該有三、四十人；最後就是為各個模塊提供api和技術支持的共通團隊。<br/>
-　　在大森的主要任務的就是系統測試。自己寫文檔，自己開發測試，很順利，沒發現什麼問題，但一旦和其他模塊一起測試，就各種問題都來了。而且在大森還有來自客戶東急リバブル的負責人，客戶自己也組織自己的員工加入測試，本以為工作地點近了，可以輕鬆點，但真正的挑戰才剛開始。每天光自己測試就問題一大堆，還要兼顧其他團隊和客戶測出來bug，加上每天各種進度會，各種壓力無限大。不過對比最大的契約團隊我們算是輕鬆多了，估計是他們之前在中國時候開發的時候溝通不夠好，問題特別多，所以最後索性把人都叫到日本直接和設計團隊一起開發，看著他們的bse夾在設計和開發之間那種著急啊，沒法形容。迫於進度上的壓力，我們團隊最後也沒辦法也請了外援－－韓國測試團。<br/>
-　　日本人開會，中國人開發，韓國人測試。這樣大約又折騰了半年，慢慢的，契約團隊的中國開發人員慢慢撤走了，我們的韓國測試團也退場了，項目終於上線進入保守階段，最後我也退出了項目。<br/>
-　　牛刀初試，一絲不苟的工作態度是這個團隊教會我最寶貴的東西。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+    <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -957,6 +1218,10 @@ useWebKit=true
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/02/21/n-plus-1-queries-of-active-record/">浅谈ActiveRecord的N + 1查询问题</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/11/30/ruby3-typing/">非动态，也非静态，Ruby3 Typing 的第三条路</a>
@@ -972,10 +1237,6 @@ useWebKit=true
     
       <li class="post">
         <a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/28/the-abandoned-bible/">被遺棄的聖經</a>
       </li>
     
   </ul>
@@ -1029,7 +1290,7 @@ useWebKit=true
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - 文斯 -
+  Copyright &copy; 2017 - 文斯 -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
