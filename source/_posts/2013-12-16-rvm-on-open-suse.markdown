@@ -3,7 +3,7 @@ layout: post
 title: "OPEN SUSE下的RVM小坑"
 date: 2013-12-16 15:48
 comments: true
-categories: 
+categories: tools
 ---
 OPEN SUSE13.1默認就安裝了Ruby2,不過還是習慣用RVM這樣的工具管理Ruby。沒想到把系統默認的Ruby更改後，竟然給我發現了YaST的“小祕密”。  
 P.S.[YaST](http://zh.wikipedia.org/wiki/YaST)做得很優秀，没Ubuntu的花哨，非常實用。  
@@ -22,5 +22,5 @@ P.S.[YaST](http://zh.wikipedia.org/wiki/YaST)做得很優秀，没Ubuntu的花�
 問題解決！
 ![command-line2](/images/2013-12-16/command-line2.png)
 原來YaST也用到Ruby！  
-  
+
 關於gettext可以參考[維基](http://zh.wikipedia.org/wiki/Gettext)，fast_gettext可參考[這裏](https://github.com/grosser/fast_gettext)。  
