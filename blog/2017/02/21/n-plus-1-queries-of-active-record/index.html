@@ -341,7 +341,7 @@ ActiveRecord提供了以下三个方法预加载。</p>
 </span><span class='line'>Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?  [["post_id", 4], ["LIMIT", 1]]</span></code></pre></td></tr></table></div></figure>
 
 
-<p>使用Goldiloader或者预加载时，世界变清净了，但同时会有性能隐患，因为post的数据可能非常大量。</p>
+<p>使用Goldiloader或者预加载时，世界变清净了，但同时会有性能隐患，因为post的数据量可能非常大。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -351,7 +351,7 @@ ActiveRecord提供了以下三个方法预加载。</p>
 
 <h5>其他限制</h5>
 
-<p>遇到以下的关系，Goldiloader会自动关闭自动预加载。</p>
+<p>遇到以下的关系（方法），Goldiloader会自动关闭自动预加载。</p>
 
 <ul>
 <li>limit</li>
@@ -366,7 +366,8 @@ ActiveRecord提供了以下三个方法预加载。</p>
 
 <h2>本文结束之前</h2>
 
-<p>N + 1查询问题是一个容易被忽略的问题，<code>includes</code>已经够用，Goldiloader更是锦上添花，对新手足够友好。<br/>
+<p>N + 1查询问题是一个容易被忽略的问题。<br/>
+发现解决它也不难，<code>includes</code>已经够用，Goldiloader更是锦上添花，对新手足够友好。<br/>
 不过对于我这种被Rails“坑”习惯的斯德哥尔摩症候群患者来说，没有<code>includes</code>反而没安全感了>_&lt;|||</p>
 
 <h2>参考文档</h2>
