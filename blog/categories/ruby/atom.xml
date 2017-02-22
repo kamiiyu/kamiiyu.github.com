@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | 文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2017-02-22T17:55:34+08:00</updated>
+  <updated>2017-02-22T18:00:26+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -136,7 +136,7 @@ end
 
 <h5>fully_load</h5>
 
-<p>以下的方法比较特殊，如果关系已经加载了，则会直接返回已缓存在内存中的值，如果没被加载，则会通过SQL查询。</p>
+<p>以下的方法比较特殊，如果关系已经加载了，则会直接返回已缓存的值，如果没被加载，则会通过SQL查询。</p>
 
 <ul>
 <li>first</li>
