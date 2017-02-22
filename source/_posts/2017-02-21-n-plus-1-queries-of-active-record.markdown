@@ -87,7 +87,6 @@ ActiveRecord提供了以下三个方法预加载。
 
 第二，不符合DRY。  
 既然我们都不喜欢N + 1，那就应该从源头上杜绝，而不是每次查询时都要主动`includes`一次。  
-虽然我们也可以用`scope`把他藏在角落里，但总还是有点小疙瘩。  
 
 #### Goldiloader
 
@@ -117,7 +116,7 @@ end
 
 ##### fully_load
 
-以下的方法比较特殊，如果关系已经加载了，则会直接返回已缓存在内存中的值，如果没被加载，则会通过SQL查询。  
+以下的方法比较特殊，如果关系已经加载了，则会直接返回已缓存的值，如果没被加载，则会通过SQL查询。  
 
 * first
 * second
@@ -132,6 +131,7 @@ end
 * exists?
 
 假设现在我们需要获取每个post的最新的comment。  
+但这不是我们想要的。  
 
 ```
 > Post.all.sum{|post| [post.id, post.comments.last&.content]}
@@ -141,7 +141,6 @@ end
   Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 3], ["LIMIT", 1]]
   Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ?  [["post_id", 4], ["LIMIT", 1]]
 ```
-这不是我们想要的。  
 
 添加选项`full_load: true`后,当调用上述方法时，Goldiloader会强制自动加载所需的关系。  
 
@@ -189,7 +188,7 @@ Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."pos
 Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."created_at" DESC LIMIT ?  [["post_id", 4], ["LIMIT", 1]]
 ```
 
-使用Goldiloader或者预加载时，世界变清净了，但同时会有性能隐患，因为post的数据可能非常大量。  
+使用Goldiloader或者预加载时，世界变清净了，但同时会有性能隐患，因为post的数据量可能非常大。  
 
 ```
       Post Load (0.5ms)  SELECT "posts".* FROM "posts"
@@ -198,7 +197,7 @@ Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."pos
 
 ##### 其他限制
 
-遇到以下的关系，Goldiloader会自动关闭自动预加载。  
+遇到以下的关系（方法），Goldiloader会自动关闭自动预加载。  
 
 * limit
 * offset
@@ -210,7 +209,8 @@ Comment Load (0.1ms)  SELECT  "comments".* FROM "comments" WHERE "comments"."pos
 
 ## 本文结束之前
 
-N + 1查询问题是一个容易被忽略的问题，`includes`已经够用，Goldiloader更是锦上添花，对新手足够友好。  
+N + 1查询问题是一个容易被忽略的问题。  
+发现解决它也不难，`includes`已经够用，Goldiloader更是锦上添花，对新手足够友好。  
 不过对于我这种被Rails“坑”习惯的斯德哥尔摩症候群患者来说，没有`includes`反而没安全感了>_<|||  
 
 ## 参考文档
