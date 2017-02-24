@@ -4,7 +4,7 @@
   <title><![CDATA[文斯雜談凸^-^凸]]></title>
   <link href="http://kamiiyu.github.io/atom.xml" rel="self"/>
   <link href="http://kamiiyu.github.io/"/>
-  <updated>2017-02-22T18:08:39+08:00</updated>
+  <updated>2017-02-25T00:25:15+08:00</updated>
   <id>http://kamiiyu.github.io/</id>
   <author>
     <name><![CDATA[文斯]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[{今天: {Ruby: '24岁', 我: '36岁'}}]]></title>
+    <link href="http://kamiiyu.github.io/blog/2017/02/24/happy-24th-birthday/"/>
+    <updated>2017-02-24T22:30:18+08:00</updated>
+    <id>http://kamiiyu.github.io/blog/2017/02/24/happy-24th-birthday</id>
+    <content type="html"><![CDATA[<p>低头猛赶稿，已经不知道是过了多少个凌晨3点了，只知道令人惭愧的进度。<br/>
+Ruby已经迎来2.4版本了，而手上的《Ruby基础教程》第五版（对应Ruby2.3）的稿件还有三分之一没完成。<br/>
+凑巧某处提到1993年2月24日是Ruby的“诞生日”，才发现原来今天就是Ruby24岁生日！<br/>
+回想07年知道Ruby，11年开始用Ruby至今，感慨万千。</p>
+
+<p>“你以前搞Java的，为什么会想到转Ruby呢？”<br/>
+“Ruby很小众，不好招人吧！？”<br/>
+“带过团队吗？”<br/>
+“Ruby性能不好啊！”<br/>
+“Ruby怎么那么慢？”<br/>
+“Ruby怎么会这样？”<br/>
+“Ruby怎么会那样？”<br/>
+“Ruby……和PHP差不多？”<br/>
+“Ruby……”<br/>
+“哦，那还是不要用Ruby吧！”</p>
+
+<p>已经过了血气方刚的年龄，已经“不敢”和人争辩。<br/>
+听到，心里也就是咯噔一下，眉头皱一皱，然后……就过去了。</p>
+
+<p>“因为Ruby会令你感到快乐，而且喜欢Ruby社区的氛围……”<br/>
+“不好招，都是找PHP转的，或者……”<br/>
+“带过，小团队，因为……”<br/>
+“但开发效率高啊，而且现在硬件性能也好……”<br/>
+“也还好吧，因为Ruby比较灵活，还有……”<br/>
+“其实是那样的……”<br/>
+“其实是这样的……”<br/>
+“也……是啦，主要都是用来做网页的……”<br/>
+“嗯……明白……说的也是……”<br/>
+“也……不是……特别地……反对用NodeJS，……都行……”</p>
+
+<p>认识Ruby以前，转职时讲的是“……想换个环境、平台……”。<br/>
+认识Ruby以后，讲的是“……因为公司不准备用Ruby了……”。</p>
+
+<p>曾经背叛过。<br/>
+现在也在想是否应该放弃。</p>
+
+<p>为什么要坚持。<br/>
+坚持的到底是什么。<br/>
+……<br/>
+还是用Ruby的时候才是最开心的。</p>
+
+<p><strong>感恩！</strong><br/>
+<strong>感谢！</strong></p>
+
+<p><strong>Ruby!</strong><br/>
+<strong>Happy Birthday!</strong></p>
+
+<p><strong>Ruby程序员！</strong><br/>
+<strong>Happy Hacking!</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[浅谈ActiveRecord的N + 1查询问题]]></title>

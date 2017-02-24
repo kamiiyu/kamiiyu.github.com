@@ -9,15 +9,9 @@
   <meta name="author" content="文斯">
 
   
-  <meta name="description" content="ORM框架的性能小坑 在使用ActiveRecord这样的ORM工具时，常会嵌套遍历model。
-例如，有两个model，Post、Comment，关系是一对多。 1
-2
-3
-4
-5
-6
-7
-class Post &lt; ApplicationRecord has_many :comments &hellip;">
+  <meta name="description" content="低头猛赶稿，已经不知道是过了多少个凌晨3点了，只知道令人惭愧的进度。
+Ruby已经迎来2.4版本了，而手上的《Ruby基础教程》第五版（对应Ruby2.3）的稿件还有三分之一没完成。
+凑巧某处提到1993年2月24日是Ruby的“诞生日”，才发现原来今天就是Ruby24岁生日！ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +82,90 @@ class Post &lt; ApplicationRecord has_many :comments &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/02/24/happy-24th-birthday/">{今天: {Ruby: &#8216;24岁&#8217;, 我: &#8216;36岁&#8217;}}</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-02-24T22:30:18+08:00" pubdate data-updated="true">Feb 24<span>th</span>, 2017</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>低头猛赶稿，已经不知道是过了多少个凌晨3点了，只知道令人惭愧的进度。<br/>
+Ruby已经迎来2.4版本了，而手上的《Ruby基础教程》第五版（对应Ruby2.3）的稿件还有三分之一没完成。<br/>
+凑巧某处提到1993年2月24日是Ruby的“诞生日”，才发现原来今天就是Ruby24岁生日！<br/>
+回想07年知道Ruby，11年开始用Ruby至今，感慨万千。</p>
+
+<p>“你以前搞Java的，为什么会想到转Ruby呢？”<br/>
+“Ruby很小众，不好招人吧！？”<br/>
+“带过团队吗？”<br/>
+“Ruby性能不好啊！”<br/>
+“Ruby怎么那么慢？”<br/>
+“Ruby怎么会这样？”<br/>
+“Ruby怎么会那样？”<br/>
+“Ruby……和PHP差不多？”<br/>
+“Ruby……”<br/>
+“哦，那还是不要用Ruby吧！”</p>
+
+<p>已经过了血气方刚的年龄，已经“不敢”和人争辩。<br/>
+听到，心里也就是咯噔一下，眉头皱一皱，然后……就过去了。</p>
+
+<p>“因为Ruby会令你感到快乐，而且喜欢Ruby社区的氛围……”<br/>
+“不好招，都是找PHP转的，或者……”<br/>
+“带过，小团队，因为……”<br/>
+“但开发效率高啊，而且现在硬件性能也好……”<br/>
+“也还好吧，因为Ruby比较灵活，还有……”<br/>
+“其实是那样的……”<br/>
+“其实是这样的……”<br/>
+“也……是啦，主要都是用来做网页的……”<br/>
+“嗯……明白……说的也是……”<br/>
+“也……不是……特别地……反对用NodeJS，……都行……”</p>
+
+<p>认识Ruby以前，转职时讲的是“……想换个环境、平台……”。<br/>
+认识Ruby以后，讲的是“……因为公司不准备用Ruby了……”。</p>
+
+<p>曾经背叛过。<br/>
+现在也在想是否应该放弃。</p>
+
+<p>为什么要坚持。<br/>
+坚持的到底是什么。<br/>
+……<br/>
+还是用Ruby的时候才是最开心的。</p>
+
+<p><strong>感恩！</strong><br/>
+<strong>感谢！</strong></p>
+
+<p><strong>Ruby!</strong><br/>
+<strong>Happy Birthday!</strong></p>
+
+<p><strong>Ruby程序员！</strong><br/>
+<strong>Happy Hacking!</strong></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1159,51 +1237,6 @@ useWebKit=true
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/24/project-jcb/">JCBカード 乘风破浪</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-24T14:26:00+08:00" pubdate data-updated="true">Jan 24<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>　　2008年，還是日立製作所的項目，客戶是更難纏的JCB，注定了這個項目是個難啃的骨頭。我加入的時候項目已經做了一年多，已經處於系統測試階段，之前開發的整個團隊由於各種原因已經撤走，只剩下文檔和代碼由我們接手，系統三個月後上線⋯⋯<br/>
-　　三個月內，用最短的時間熟悉系統，用最短的時間查找並修改測出來的bug，這些也都還好，最麻煩的由於客戶是JCB，整個開發文檔一點都馬虎不得，大大小小從設計到單元測試的文檔全都需要經過客戶review。修改bug的過程更令人髮指，也許只是修改一行代碼，但卻要提交十幾頁的測試結果文檔作為審查，首先是團隊review然後是日立review，沒問題放服務器測試後在整理n張客戶能看懂的測試結果文檔，客戶確認後再發佈到正式服務器。<br/>
-　　要件設計&mdash;>基本設計&mdash;>詳細設計&mdash;>編寫代碼&mdash;>單元測試&mdash;>結合測試&mdash;>系統測試&mdash;>發佈後確認。不管是修改bug或者追加功能，不管時間多麼緊，層層review一步都不能少。過程看似死板，但是就是這種紀律性讓我們的團隊在這麼困難的情況下生存了下來，系統上線後，新版本的升級順理成章的還是由我們來負責，而且慢慢也把更多的模塊委託給我們。<br/>
-　　我剛去的時候團隊只有7個人，最終發展為三十個人的團隊，中日成員大概對半分，上面一個tl一個pm，再分兩個小團隊，一個負責人機互動頁面，一個負責外部數據的交換和處理，我們所屬的是中期審查模塊。系統另外還分為初期審查、online（臨時審查）三部分，再加上一個業務的團隊，一個運維團隊，總共五team人，總共有100多人。<br/>
-　　這個系統是JCB基幹系統JENIUS下面的一個子系統ramda，主要負責信用卡用戶信用度管理，為基幹系統提供信用度參考。用戶的信用數據來源主要來自第三方和JCB自己的數據庫，因此這次項目的重點是第三方和JCB的數據整合。第三方機構就有四家，而JCB的數據也分散在好幾個子系統裡面，測試數據做起來異常的費勁。由於涉及的外部系統接口眾多，而且稍有點錯誤，也許就會讓客戶蒙受巨大損失，沒有如此苛刻的開發流程是根本保證不了質量的。<br/>
-　　日立的項目，用的是日立自己的解決方案Justware，不過數據庫就用了更出名oracle，整個框架還是那麼的實而不華，開發人員不需要專注技術細節，只需把握業務細節，不能說很有效率，但是很實用，把犯錯的機會降到最低。部署起來也算方便，圖形化，簡單直接。<br/>
-　　整個項目做了兩年多，經歷了三次大的版本升級，直到我2011年回國的的時候，還在做，不夠已經大部份轉為保守了，幾乎沒新功能的追加了。<br/>
-　　乘风破浪，項目的難度本身並不高，但是要求卻一點不低，深深的感受到日本人追求細節的那種令人髮指的執著，哪怕空格是用全角還是半角都會仔細檢查。從開始無數次的review不通過重寫文檔到後來的一次通過，比攻克一個技術難題更有成就感。<br/>
-　　商業系統開發發展必然朝越來越模式化的發展，這樣企業承擔的成本也許高點，但大大降低了失敗的機率，因為整個項目的成敗靠的整個團隊而不是個人。<br/>
-　　兩個項目，五年的日本開發經驗，讓我獲益良多，但是我還是決定回廣州⋯⋯</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
     <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1219,6 +1252,10 @@ useWebKit=true
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/02/24/happy-24th-birthday/">{今天: {Ruby: &#8216;24岁&#8217;, 我: &#8216;36岁&#8217;}}</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2017/02/21/n-plus-1-queries-of-active-record/">浅谈ActiveRecord的N + 1查询问题</a>
       </li>
     
@@ -1232,10 +1269,6 @@ useWebKit=true
     
       <li class="post">
         <a href="/blog/2013/12/06/retext/">ReText——Linux下的MarkDown利器</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/29/mrw-admin/">Jack是不是管理員？</a>
       </li>
     
   </ul>
